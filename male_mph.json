@@ -1,0 +1,7778 @@
+[
+ {
+  "Mother_cm": 140,
+  "Father_cm": 153,
+  "Midparental_m": 146.5,
+  "Percentile": -4
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 154,
+  "Midparental_m": 147,
+  "Percentile": -3.3
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 155,
+  "Midparental_m": 147.5,
+  "Percentile": -2.6
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 156,
+  "Midparental_m": 148,
+  "Percentile": -1.9
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 157,
+  "Midparental_m": 148.5,
+  "Percentile": -1.2
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 158,
+  "Midparental_m": 149,
+  "Percentile": -0.5
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 159,
+  "Midparental_m": 149.5,
+  "Percentile": 0.2
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 160,
+  "Midparental_m": 150,
+  "Percentile": 0.9
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 161,
+  "Midparental_m": 150.5,
+  "Percentile": 1.6
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 162,
+  "Midparental_m": 151,
+  "Percentile": 2.3
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 163,
+  "Midparental_m": 151.5,
+  "Percentile": 3
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 164,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 165,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 166,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 167,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 168,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 169,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 170,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 171,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 172,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 173,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 174,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 175,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 176,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 177,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 178,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 179,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 180,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 181,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 182,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 183,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 184,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 185,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 186,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 187,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 140,
+  "Father_cm": 188,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 153,
+  "Midparental_m": 147,
+  "Percentile": -3.3
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 154,
+  "Midparental_m": 147.5,
+  "Percentile": -2.6
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 155,
+  "Midparental_m": 148,
+  "Percentile": -1.9
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 156,
+  "Midparental_m": 148.5,
+  "Percentile": -1.2
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 157,
+  "Midparental_m": 149,
+  "Percentile": -0.5
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 158,
+  "Midparental_m": 149.5,
+  "Percentile": 0.2
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 159,
+  "Midparental_m": 150,
+  "Percentile": 0.9
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 160,
+  "Midparental_m": 150.5,
+  "Percentile": 1.6
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 161,
+  "Midparental_m": 151,
+  "Percentile": 2.3
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 162,
+  "Midparental_m": 151.5,
+  "Percentile": 3
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 163,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 164,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 165,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 166,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 167,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 168,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 169,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 170,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 171,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 172,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 173,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 174,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 175,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 176,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 177,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 178,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 179,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 180,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 181,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 182,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 183,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 184,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 185,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 186,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 187,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 141,
+  "Father_cm": 188,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 153,
+  "Midparental_m": 147.5,
+  "Percentile": -2.6
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 154,
+  "Midparental_m": 148,
+  "Percentile": -1.9
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 155,
+  "Midparental_m": 148.5,
+  "Percentile": -1.2
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 156,
+  "Midparental_m": 149,
+  "Percentile": -0.5
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 157,
+  "Midparental_m": 149.5,
+  "Percentile": 0.2
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 158,
+  "Midparental_m": 150,
+  "Percentile": 0.9
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 159,
+  "Midparental_m": 150.5,
+  "Percentile": 1.6
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 160,
+  "Midparental_m": 151,
+  "Percentile": 2.3
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 161,
+  "Midparental_m": 151.5,
+  "Percentile": 3
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 162,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 163,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 164,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 165,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 166,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 167,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 168,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 169,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 170,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 171,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 172,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 173,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 174,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 175,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 176,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 177,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 178,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 179,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 180,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 181,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 182,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 183,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 184,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 185,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 186,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 187,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 142,
+  "Father_cm": 188,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 153,
+  "Midparental_m": 148,
+  "Percentile": -1.9
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 154,
+  "Midparental_m": 148.5,
+  "Percentile": -1.2
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 155,
+  "Midparental_m": 149,
+  "Percentile": -0.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 156,
+  "Midparental_m": 149.5,
+  "Percentile": 0.2
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 157,
+  "Midparental_m": 150,
+  "Percentile": 0.9
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 158,
+  "Midparental_m": 150.5,
+  "Percentile": 1.6
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 159,
+  "Midparental_m": 151,
+  "Percentile": 2.3
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 160,
+  "Midparental_m": 151.5,
+  "Percentile": 3
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 161,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 162,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 163,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 164,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 165,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 166,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 167,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 168,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 169,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 170,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 171,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 172,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 173,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 174,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 175,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 176,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 177,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 178,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 179,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 180,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 181,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 182,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 183,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 184,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 185,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 186,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 187,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 143,
+  "Father_cm": 188,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 153,
+  "Midparental_m": 148.5,
+  "Percentile": -1.2
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 154,
+  "Midparental_m": 149,
+  "Percentile": -0.5
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 155,
+  "Midparental_m": 149.5,
+  "Percentile": 0.2
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 156,
+  "Midparental_m": 150,
+  "Percentile": 0.9
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 157,
+  "Midparental_m": 150.5,
+  "Percentile": 1.6
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 158,
+  "Midparental_m": 151,
+  "Percentile": 2.3
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 159,
+  "Midparental_m": 151.5,
+  "Percentile": 3
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 160,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 161,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 162,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 163,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 164,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 165,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 166,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 167,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 168,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 169,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 170,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 171,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 172,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 173,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 174,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 175,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 176,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 177,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 178,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 179,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 180,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 181,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 182,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 183,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 184,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 185,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 186,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 187,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 144,
+  "Father_cm": 188,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 153,
+  "Midparental_m": 149,
+  "Percentile": -0.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 154,
+  "Midparental_m": 149.5,
+  "Percentile": 0.2
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 155,
+  "Midparental_m": 150,
+  "Percentile": 0.9
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 156,
+  "Midparental_m": 150.5,
+  "Percentile": 1.6
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 157,
+  "Midparental_m": 151,
+  "Percentile": 2.3
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 158,
+  "Midparental_m": 151.5,
+  "Percentile": 3
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 159,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 160,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 161,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 162,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 163,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 164,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 165,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 166,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 167,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 168,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 169,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 170,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 171,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 172,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 173,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 174,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 175,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 176,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 177,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 178,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 179,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 180,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 181,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 182,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 183,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 184,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 185,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 186,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 187,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 145,
+  "Father_cm": 188,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 153,
+  "Midparental_m": 149.5,
+  "Percentile": 0.2
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 154,
+  "Midparental_m": 150,
+  "Percentile": 0.9
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 155,
+  "Midparental_m": 150.5,
+  "Percentile": 1.6
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 156,
+  "Midparental_m": 151,
+  "Percentile": 2.3
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 157,
+  "Midparental_m": 151.5,
+  "Percentile": 3
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 158,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 159,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 160,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 161,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 162,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 163,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 164,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 165,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 166,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 167,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 168,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 169,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 170,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 171,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 172,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 173,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 174,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 175,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 176,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 177,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 178,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 179,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 180,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 181,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 182,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 183,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 184,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 185,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 186,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 187,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 146,
+  "Father_cm": 188,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 153,
+  "Midparental_m": 150,
+  "Percentile": 0.9
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 154,
+  "Midparental_m": 150.5,
+  "Percentile": 1.6
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 155,
+  "Midparental_m": 151,
+  "Percentile": 2.3
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 156,
+  "Midparental_m": 151.5,
+  "Percentile": 3
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 157,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 158,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 159,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 160,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 161,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 162,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 163,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 164,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 165,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 166,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 167,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 168,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 169,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 170,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 171,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 172,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 173,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 174,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 175,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 176,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 177,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 178,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 179,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 180,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 181,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 182,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 183,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 184,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 185,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 186,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 187,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 147,
+  "Father_cm": 188,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 153,
+  "Midparental_m": 150.5,
+  "Percentile": 1.6
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 154,
+  "Midparental_m": 151,
+  "Percentile": 2.3
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 155,
+  "Midparental_m": 151.5,
+  "Percentile": 3
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 156,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 157,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 158,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 159,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 160,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 161,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 162,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 163,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 164,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 165,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 166,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 167,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 168,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 169,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 170,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 171,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 172,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 173,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 174,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 175,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 176,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 177,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 178,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 179,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 180,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 181,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 182,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 183,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 184,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 185,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 186,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 187,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 148,
+  "Father_cm": 188,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 153,
+  "Midparental_m": 151,
+  "Percentile": 2.3
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 154,
+  "Midparental_m": 151.5,
+  "Percentile": 3
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 155,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 156,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 157,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 158,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 159,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 160,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 161,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 162,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 163,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 164,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 165,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 166,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 167,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 168,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 169,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 170,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 171,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 172,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 173,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 174,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 175,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 176,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 177,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 178,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 179,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 180,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 181,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 182,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 183,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 184,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 185,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 186,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 187,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 149,
+  "Father_cm": 188,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 153,
+  "Midparental_m": 151.5,
+  "Percentile": 3
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 154,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 155,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 156,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 157,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 158,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 159,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 160,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 161,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 162,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 163,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 164,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 165,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 166,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 167,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 168,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 169,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 170,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 171,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 172,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 173,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 174,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 175,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 176,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 177,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 178,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 179,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 180,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 181,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 182,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 183,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 184,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 185,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 186,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 187,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 150,
+  "Father_cm": 188,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 153,
+  "Midparental_m": 152,
+  "Percentile": 3.7
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 154,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 155,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 156,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 157,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 158,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 159,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 160,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 161,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 162,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 163,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 164,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 165,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 166,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 167,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 168,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 169,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 170,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 171,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 172,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 173,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 174,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 175,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 176,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 177,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 178,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 179,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 180,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 181,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 182,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 183,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 184,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 185,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 186,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 187,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 151,
+  "Father_cm": 188,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 153,
+  "Midparental_m": 152.5,
+  "Percentile": 4.4
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 154,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 155,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 156,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 157,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 158,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 159,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 160,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 161,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 162,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 163,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 164,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 165,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 166,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 167,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 168,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 169,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 170,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 171,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 172,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 173,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 174,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 175,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 176,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 177,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 178,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 179,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 180,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 181,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 182,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 183,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 184,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 185,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 186,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 187,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 152,
+  "Father_cm": 188,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 153,
+  "Midparental_m": 153,
+  "Percentile": 5.1
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 154,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 155,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 156,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 157,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 158,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 159,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 160,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 161,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 162,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 163,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 164,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 165,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 166,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 167,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 168,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 169,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 170,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 171,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 172,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 173,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 174,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 175,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 176,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 177,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 178,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 179,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 180,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 181,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 182,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 183,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 184,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 185,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 186,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 187,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 153,
+  "Father_cm": 188,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 153,
+  "Midparental_m": 153.5,
+  "Percentile": 5.8
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 154,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 155,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 156,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 157,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 158,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 159,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 160,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 161,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 162,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 163,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 164,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 165,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 166,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 167,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 168,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 169,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 170,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 171,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 172,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 173,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 174,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 175,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 176,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 177,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 178,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 179,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 180,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 181,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 182,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 183,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 184,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 185,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 186,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 187,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 154,
+  "Father_cm": 188,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 153,
+  "Midparental_m": 154,
+  "Percentile": 6.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 154,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 155,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 156,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 157,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 158,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 159,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 160,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 161,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 162,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 163,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 164,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 165,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 166,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 167,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 168,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 169,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 170,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 171,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 172,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 173,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 174,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 175,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 176,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 177,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 178,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 179,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 180,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 181,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 182,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 183,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 184,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 185,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 186,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 187,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 155,
+  "Father_cm": 188,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 153,
+  "Midparental_m": 154.5,
+  "Percentile": 7.2
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 154,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 155,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 156,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 157,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 158,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 159,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 160,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 161,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 162,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 163,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 164,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 165,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 166,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 167,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 168,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 169,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 170,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 171,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 172,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 173,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 174,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 175,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 176,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 177,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 178,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 179,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 180,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 181,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 182,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 183,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 184,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 185,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 186,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 187,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 156,
+  "Father_cm": 188,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 153,
+  "Midparental_m": 155,
+  "Percentile": 7.9
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 154,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 155,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 156,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 157,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 158,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 159,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 160,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 161,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 162,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 163,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 164,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 165,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 166,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 167,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 168,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 169,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 170,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 171,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 172,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 173,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 174,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 175,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 176,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 177,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 178,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 179,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 180,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 181,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 182,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 183,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 184,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 185,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 186,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 187,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 157,
+  "Father_cm": 188,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 153,
+  "Midparental_m": 155.5,
+  "Percentile": 8.6
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 154,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 155,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 156,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 157,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 158,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 159,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 160,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 161,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 162,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 163,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 164,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 165,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 166,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 167,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 168,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 169,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 170,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 171,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 172,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 173,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 174,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 175,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 176,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 177,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 178,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 179,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 180,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 181,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 182,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 183,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 184,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 185,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 186,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 187,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 158,
+  "Father_cm": 188,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 153,
+  "Midparental_m": 156,
+  "Percentile": 9.3
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 154,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 155,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 156,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 157,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 158,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 159,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 160,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 161,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 162,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 163,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 164,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 165,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 166,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 167,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 168,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 169,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 170,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 171,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 172,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 173,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 174,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 175,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 176,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 177,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 178,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 179,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 180,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 181,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 182,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 183,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 184,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 185,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 186,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 187,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 159,
+  "Father_cm": 188,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 153,
+  "Midparental_m": 156.5,
+  "Percentile": 10
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 154,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 155,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 156,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 157,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 158,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 159,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 160,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 161,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 162,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 163,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 164,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 165,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 166,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 167,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 168,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 169,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 170,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 171,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 172,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 173,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 174,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 175,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 176,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 177,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 178,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 179,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 180,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 181,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 182,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 183,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 184,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 185,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 186,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 187,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 160,
+  "Father_cm": 188,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 153,
+  "Midparental_m": 157,
+  "Percentile": 11.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 154,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 155,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 156,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 157,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 158,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 159,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 160,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 161,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 162,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 163,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 164,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 165,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 166,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 167,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 168,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 169,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 170,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 171,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 172,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 173,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 174,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 175,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 176,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 177,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 178,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 179,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 180,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 181,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 182,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 183,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 184,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 185,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 186,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 187,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 161,
+  "Father_cm": 188,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 153,
+  "Midparental_m": 157.5,
+  "Percentile": 13
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 154,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 155,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 156,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 157,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 158,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 159,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 160,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 161,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 162,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 163,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 164,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 165,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 166,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 167,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 168,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 169,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 170,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 171,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 172,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 173,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 174,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 175,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 176,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 177,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 178,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 179,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 180,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 181,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 182,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 183,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 184,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 185,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 186,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 187,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 162,
+  "Father_cm": 188,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 153,
+  "Midparental_m": 158,
+  "Percentile": 14.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 154,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 155,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 156,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 157,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 158,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 159,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 160,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 161,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 162,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 163,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 164,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 165,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 166,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 167,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 168,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 169,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 170,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 171,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 172,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 173,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 174,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 175,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 176,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 177,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 178,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 179,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 180,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 181,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 182,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 183,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 184,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 185,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 186,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 187,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 163,
+  "Father_cm": 188,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 153,
+  "Midparental_m": 158.5,
+  "Percentile": 16
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 154,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 155,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 156,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 157,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 158,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 159,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 160,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 161,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 162,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 163,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 164,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 165,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 166,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 167,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 168,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 169,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 170,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 171,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 172,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 173,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 174,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 175,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 176,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 177,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 178,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 179,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 180,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 181,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 182,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 183,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 184,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 185,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 186,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 187,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 164,
+  "Father_cm": 188,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 153,
+  "Midparental_m": 159,
+  "Percentile": 17.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 154,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 155,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 156,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 157,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 158,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 159,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 160,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 161,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 162,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 163,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 164,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 165,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 166,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 167,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 168,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 169,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 170,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 171,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 172,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 173,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 174,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 175,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 176,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 177,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 178,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 179,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 180,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 181,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 182,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 183,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 184,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 185,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 186,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 187,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 165,
+  "Father_cm": 188,
+  "Midparental_m": 176.5,
+  "Percentile": 93.75
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 153,
+  "Midparental_m": 159.5,
+  "Percentile": 19
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 154,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 155,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 156,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 157,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 158,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 159,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 160,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 161,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 162,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 163,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 164,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 165,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 166,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 167,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 168,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 169,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 170,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 171,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 172,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 173,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 174,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 175,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 176,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 177,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 178,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 179,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 180,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 181,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 182,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 183,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 184,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 185,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 186,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 187,
+  "Midparental_m": 176.5,
+  "Percentile": 93.75
+ },
+ {
+  "Mother_cm": 166,
+  "Father_cm": 188,
+  "Midparental_m": 177,
+  "Percentile": 95.62
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 153,
+  "Midparental_m": 160,
+  "Percentile": 20.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 154,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 155,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 156,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 157,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 158,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 159,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 160,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 161,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 162,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 163,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 164,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 165,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 166,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 167,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 168,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 169,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 170,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 171,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 172,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 173,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 174,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 175,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 176,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 177,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 178,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 179,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 180,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 181,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 182,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 183,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 184,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 185,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 186,
+  "Midparental_m": 176.5,
+  "Percentile": 93.75
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 187,
+  "Midparental_m": 177,
+  "Percentile": 95.62
+ },
+ {
+  "Mother_cm": 167,
+  "Father_cm": 188,
+  "Midparental_m": 177.5,
+  "Percentile": 97.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 153,
+  "Midparental_m": 160.5,
+  "Percentile": 22
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 154,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 155,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 156,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 157,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 158,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 159,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 160,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 161,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 162,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 163,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 164,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 165,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 166,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 167,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 168,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 169,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 170,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 171,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 172,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 173,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 174,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 175,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 176,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 177,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 178,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 179,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 180,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 181,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 182,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 183,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 184,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 185,
+  "Midparental_m": 176.5,
+  "Percentile": 93.75
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 186,
+  "Midparental_m": 177,
+  "Percentile": 95.62
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 187,
+  "Midparental_m": 177.5,
+  "Percentile": 97.5
+ },
+ {
+  "Mother_cm": 168,
+  "Father_cm": 188,
+  "Midparental_m": 178,
+  "Percentile": 99.38
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 153,
+  "Midparental_m": 161,
+  "Percentile": 23.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 154,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 155,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 156,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 157,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 158,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 159,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 160,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 161,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 162,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 163,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 164,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 165,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 166,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 167,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 168,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 169,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 170,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 171,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 172,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 173,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 174,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 175,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 176,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 177,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 178,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 179,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 180,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 181,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 182,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 183,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 184,
+  "Midparental_m": 176.5,
+  "Percentile": 93.75
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 185,
+  "Midparental_m": 177,
+  "Percentile": 95.62
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 186,
+  "Midparental_m": 177.5,
+  "Percentile": 97.5
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 187,
+  "Midparental_m": 178,
+  "Percentile": 99.38
+ },
+ {
+  "Mother_cm": 169,
+  "Father_cm": 188,
+  "Midparental_m": 178.5,
+  "Percentile": 101.25
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 153,
+  "Midparental_m": 161.5,
+  "Percentile": 25
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 154,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 155,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 156,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 157,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 158,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 159,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 160,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 161,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 162,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 163,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 164,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 165,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 166,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 167,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 168,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 169,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 170,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 171,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 172,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 173,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 174,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 175,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 176,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 177,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 178,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 179,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 180,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 181,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 182,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 183,
+  "Midparental_m": 176.5,
+  "Percentile": 93.75
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 184,
+  "Midparental_m": 177,
+  "Percentile": 95.62
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 185,
+  "Midparental_m": 177.5,
+  "Percentile": 97.5
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 186,
+  "Midparental_m": 178,
+  "Percentile": 99.38
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 187,
+  "Midparental_m": 178.5,
+  "Percentile": 101.25
+ },
+ {
+  "Mother_cm": 170,
+  "Father_cm": 188,
+  "Midparental_m": 179,
+  "Percentile": 103.12
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 153,
+  "Midparental_m": 162,
+  "Percentile": 27.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 154,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 155,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 156,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 157,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 158,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 159,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 160,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 161,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 162,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 163,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 164,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 165,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 166,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 167,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 168,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 169,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 170,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 171,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 172,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 173,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 174,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 175,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 176,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 177,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 178,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 179,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 180,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 181,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 182,
+  "Midparental_m": 176.5,
+  "Percentile": 93.75
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 183,
+  "Midparental_m": 177,
+  "Percentile": 95.62
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 184,
+  "Midparental_m": 177.5,
+  "Percentile": 97.5
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 185,
+  "Midparental_m": 178,
+  "Percentile": 99.38
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 186,
+  "Midparental_m": 178.5,
+  "Percentile": 101.25
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 187,
+  "Midparental_m": 179,
+  "Percentile": 103.12
+ },
+ {
+  "Mother_cm": 171,
+  "Father_cm": 188,
+  "Midparental_m": 179.5,
+  "Percentile": 105
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 153,
+  "Midparental_m": 162.5,
+  "Percentile": 30
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 154,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 155,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 156,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 157,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 158,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 159,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 160,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 161,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 162,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 163,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 164,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 165,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 166,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 167,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 168,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 169,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 170,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 171,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 172,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 173,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 174,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 175,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 176,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 177,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 178,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 179,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 180,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 181,
+  "Midparental_m": 176.5,
+  "Percentile": 93.75
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 182,
+  "Midparental_m": 177,
+  "Percentile": 95.62
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 183,
+  "Midparental_m": 177.5,
+  "Percentile": 97.5
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 184,
+  "Midparental_m": 178,
+  "Percentile": 99.38
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 185,
+  "Midparental_m": 178.5,
+  "Percentile": 101.25
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 186,
+  "Midparental_m": 179,
+  "Percentile": 103.12
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 187,
+  "Midparental_m": 179.5,
+  "Percentile": 105
+ },
+ {
+  "Mother_cm": 172,
+  "Father_cm": 188,
+  "Midparental_m": 180,
+  "Percentile": 106.88
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 153,
+  "Midparental_m": 163,
+  "Percentile": 32.5
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 154,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 155,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 156,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 157,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 158,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 159,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 160,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 161,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 162,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 163,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 164,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 165,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 166,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 167,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 168,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 169,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 170,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 171,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 172,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 173,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 174,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 175,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 176,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 177,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 178,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 179,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 180,
+  "Midparental_m": 176.5,
+  "Percentile": 93.75
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 181,
+  "Midparental_m": 177,
+  "Percentile": 95.62
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 182,
+  "Midparental_m": 177.5,
+  "Percentile": 97.5
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 183,
+  "Midparental_m": 178,
+  "Percentile": 99.38
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 184,
+  "Midparental_m": 178.5,
+  "Percentile": 101.25
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 185,
+  "Midparental_m": 179,
+  "Percentile": 103.12
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 186,
+  "Midparental_m": 179.5,
+  "Percentile": 105
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 187,
+  "Midparental_m": 180,
+  "Percentile": 106.88
+ },
+ {
+  "Mother_cm": 173,
+  "Father_cm": 188,
+  "Midparental_m": 180.5,
+  "Percentile": 108.75
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 153,
+  "Midparental_m": 163.5,
+  "Percentile": 35
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 154,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 155,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 156,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 157,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 158,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 159,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 160,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 161,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 162,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 163,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 164,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 165,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 166,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 167,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 168,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 169,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 170,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 171,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 172,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 173,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 174,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 175,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 176,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 177,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 178,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 179,
+  "Midparental_m": 176.5,
+  "Percentile": 93.75
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 180,
+  "Midparental_m": 177,
+  "Percentile": 95.62
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 181,
+  "Midparental_m": 177.5,
+  "Percentile": 97.5
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 182,
+  "Midparental_m": 178,
+  "Percentile": 99.38
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 183,
+  "Midparental_m": 178.5,
+  "Percentile": 101.25
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 184,
+  "Midparental_m": 179,
+  "Percentile": 103.12
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 185,
+  "Midparental_m": 179.5,
+  "Percentile": 105
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 186,
+  "Midparental_m": 180,
+  "Percentile": 106.88
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 187,
+  "Midparental_m": 180.5,
+  "Percentile": 108.75
+ },
+ {
+  "Mother_cm": 174,
+  "Father_cm": 188,
+  "Midparental_m": 181,
+  "Percentile": 110.62
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 153,
+  "Midparental_m": 164,
+  "Percentile": 37.5
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 154,
+  "Midparental_m": 164.5,
+  "Percentile": 40
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 155,
+  "Midparental_m": 165,
+  "Percentile": 42.5
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 156,
+  "Midparental_m": 165.5,
+  "Percentile": 45
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 157,
+  "Midparental_m": 166,
+  "Percentile": 47.5
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 158,
+  "Midparental_m": 166.5,
+  "Percentile": 50
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 159,
+  "Midparental_m": 167,
+  "Percentile": 52.5
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 160,
+  "Midparental_m": 167.5,
+  "Percentile": 55
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 161,
+  "Midparental_m": 168,
+  "Percentile": 57.5
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 162,
+  "Midparental_m": 168.5,
+  "Percentile": 60
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 163,
+  "Midparental_m": 169,
+  "Percentile": 62.5
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 164,
+  "Midparental_m": 169.5,
+  "Percentile": 65
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 165,
+  "Midparental_m": 170,
+  "Percentile": 67.5
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 166,
+  "Midparental_m": 170.5,
+  "Percentile": 70
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 167,
+  "Midparental_m": 171,
+  "Percentile": 72.5
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 168,
+  "Midparental_m": 171.5,
+  "Percentile": 75
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 169,
+  "Midparental_m": 172,
+  "Percentile": 76.88
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 170,
+  "Midparental_m": 172.5,
+  "Percentile": 78.75
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 171,
+  "Midparental_m": 173,
+  "Percentile": 80.62
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 172,
+  "Midparental_m": 173.5,
+  "Percentile": 82.5
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 173,
+  "Midparental_m": 174,
+  "Percentile": 84.38
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 174,
+  "Midparental_m": 174.5,
+  "Percentile": 86.25
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 175,
+  "Midparental_m": 175,
+  "Percentile": 88.12
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 176,
+  "Midparental_m": 175.5,
+  "Percentile": 90
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 177,
+  "Midparental_m": 176,
+  "Percentile": 91.88
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 178,
+  "Midparental_m": 176.5,
+  "Percentile": 93.75
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 179,
+  "Midparental_m": 177,
+  "Percentile": 95.62
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 180,
+  "Midparental_m": 177.5,
+  "Percentile": 97.5
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 181,
+  "Midparental_m": 178,
+  "Percentile": 99.38
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 182,
+  "Midparental_m": 178.5,
+  "Percentile": 101.25
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 183,
+  "Midparental_m": 179,
+  "Percentile": 103.12
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 184,
+  "Midparental_m": 179.5,
+  "Percentile": 105
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 185,
+  "Midparental_m": 180,
+  "Percentile": 106.88
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 186,
+  "Midparental_m": 180.5,
+  "Percentile": 108.75
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 187,
+  "Midparental_m": 181,
+  "Percentile": 110.62
+ },
+ {
+  "Mother_cm": 175,
+  "Father_cm": 188,
+  "Midparental_m": 181.5,
+  "Percentile": 112.5
+ }
+]
