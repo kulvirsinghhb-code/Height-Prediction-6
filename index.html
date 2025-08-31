@@ -202,7 +202,7 @@ async function predictHeight(){
       const avgSD = avg * 0.0175;
       const avgLower = rr(avg - avgSD), avgUpper = rr(avg + avgSD);
 
-      outText += `\n🔮 Predicted Height (Method 1): ${predicted1} cm\nRange (±1.75%): ${lower1} – ${upper1} cm\n\n🔮 Predicted Height (Method 2 - AVG M1 & M2): ${rr(avg)} cm\nRange (±1.75%): ${avgLower} – ${avgUpper} cm`;
+      outText += `\n🔮 Predicted Height 1: ${predicted1} cm: ${lower1} – ${upper1} cm\n\n🔮 Predicted Height 2: ${rr(avg)} cm: ${avgLower} – ${avgUpper} cm`;
       plotPoints.push({x:18, y: rr(avg), color:"blue", label:"Height 2"});
     }
 
@@ -257,3 +257,4 @@ async function predictHeight(){
 </script>
 </body>
 </html>
+
