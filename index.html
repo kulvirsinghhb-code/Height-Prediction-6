@@ -168,14 +168,21 @@ async function predictHeight(){
       predicted1, predicted2, avgPredicted: avg
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbwPWfw6e_35F8aoxok9tQmmtsXBqGCYh3u9SVii2c_JtJyBPya0O4K3giUoYNqwpolK/exec", {
-      method: "POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify(sheetData)
-    })
-    .then(res=>res.text())
-    .then(txt=>console.log("Google Sheets:", txt))
-    .catch(err=>console.error("Sheets error:", err));
+    fetch("https://script.google.com/macros/s/AKfycbw8_vvmTMYMQXITJyDCHLqELv35Z8gCK8mtafXVguaHCTvEbjZCQfK1v6LvuQz7DfLfHA/exec", {
+  method: "POST",
+  headers: {"Content-Type":"application/json"},
+  body: JSON.stringify(sheetData)
+})
+.then(async res => {
+  const text = await res.text();
+  console.log("Google Sheets raw response:", text);
+  alert("Sheets server response: " + text);  // 🔔 popup so you don’t miss it
+})
+.catch(err => {
+  console.error("Sheets error:", err);
+  alert("Sheets error: " + err.message);
+});
+
 
     // display results
     rb.style.display="block";
@@ -221,5 +228,6 @@ async function predictHeight(){
 </script>
 </body>
 </html>
+
 
 
