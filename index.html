@@ -65,6 +65,9 @@ function getColor(p){return{"P3":"rgba(255,99,132,1)","P10":"rgba(255,159,64,1)"
 
 document.getElementById("predictBtn").addEventListener("click", predictHeight);
 
+  console.log("predictHeight() called!");
+
+  
 async function predictHeight(){
   const rb = document.getElementById("results");
   rb.style.display="none";
@@ -168,6 +171,8 @@ async function predictHeight(){
       predicted1, predicted2, avgPredicted: avg
     };
 
+console.log("About to send data:", sheetData);
+    
     fetch("https://script.google.com/macros/s/AKfycbw8_vvmTMYMQXITJyDCHLqELv35Z8gCK8mtafXVguaHCTvEbjZCQfK1v6LvuQz7DfLfHA/exec", {
   method: "POST",
   headers: {"Content-Type":"application/json"},
@@ -228,6 +233,7 @@ async function predictHeight(){
 </script>
 </body>
 </html>
+
 
 
 
