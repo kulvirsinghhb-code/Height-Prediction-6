@@ -205,7 +205,29 @@ async function predictHeight(){
       outText += `\n🔮 Predicted Height 1: ${predicted1} cm: ${lower1} – ${upper1} cm\n\n🔮 Predicted Height 2: ${rr(avg)} cm: ${avgLower} – ${avgUpper} cm`;
       plotPoints.push({x:18, y: rr(avg), color:"blue", label:"Height 2"});
     }
+// --- Save to Google Sheets ---
+const sheetData = {
+  name,
+  state,
+  district,
+  gender,
+  age,
+  currentHeight,
+  motherHeight: (method === "2") ? mother : null,
+  fatherHeight: (method === "2") ? father : null,
+  predicted1,
+  predicted2: (method === "2") ? predicted2 : null,
+  avgPredicted: (method === "2") ? avg : null
+};
 
+fetch("https://script.google.com/macros/s/AKfycbwBcWSCLDCLC41JSgiDwZzPCzCPyN1X4Kr2L4C1QEpubOTcfynl1-xvVZxaYRbY7N2LjA/exec", {
+  method: "POST",
+  body: JSON.stringify(sheetData),
+  headers: { "Content-Type": "application/json" }
+})
+.then(r => r.text())
+.then(txt => console.log("Google Sheets:", txt))
+.catch(err => console.error("Google Sheets error:", err));
     resultsBox.style.display = "block";
     resultsBox.innerText = outText;
     document.getElementById("printBtn").style.display = "inline-block";
@@ -257,28 +279,7 @@ async function predictHeight(){
 </script>
 </body>
 </html>
-// --- Save to Google Sheets ---
-const sheetData = {
-  name,
-  state,
-  district,
-  gender,
-  age,
-  currentHeight,
-  motherHeight: (method === "2") ? mother : null,
-  fatherHeight: (method === "2") ? father : null,
-  predicted1,
-  predicted2: (method === "2") ? predicted2 : null,
-  avgPredicted: (method === "2") ? avg : null
-};
 
-fetch("https://script.google.com/macros/s/AKfycbwBcWSCLDCLC41JSgiDwZzPCzCPyN1X4Kr2L4C1QEpubOTcfynl1-xvVZxaYRbY7N2LjA/exec", {
-  method: "POST",
-  body: JSON.stringify(sheetData),
-  headers: { "Content-Type": "application/json" }
-})
-.then(r => r.text())
-.then(txt => console.log("Google Sheets:", txt))
-.catch(err => console.error("Google Sheets error:", err));
+
 
 
