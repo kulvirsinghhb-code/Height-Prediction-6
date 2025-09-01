@@ -176,7 +176,7 @@ async function predictHeight(){
 .then(async res => {
   const text = await res.text();
   console.log("Google Sheets raw response:", text);
-  alert("Sheets server response: " + text);  // 🔔 popup so you don’t miss it
+  alert("Sheets server response: " + text);  // popup to see response
 })
 .catch(err => {
   console.error("Sheets error:", err);
@@ -228,6 +228,7 @@ async function predictHeight(){
 </script>
 </body>
 </html>
+
 
 
 
