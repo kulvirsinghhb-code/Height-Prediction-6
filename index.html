@@ -225,7 +225,7 @@ async function predictHeight(){
       avgPredicted: avg
     };
 
-    fetch("YOUR_GOOGLE_SCRIPT_URL", {
+    fetch("https://script.google.com/macros/s/AKfycbw8_vvmTMYMQXITJyDCHLqELv35Z8gCK8mtafXVguaHCTvEbjZCQfK1v6LvuQz7DfLfHA/exec", {
       method: "POST",
       body: JSON.stringify(sheetData),
       headers: { "Content-Type": "application/json" }
@@ -288,6 +288,7 @@ async function predictHeight(){
 </script>
 </body>
 </html>
+
 
 
 
