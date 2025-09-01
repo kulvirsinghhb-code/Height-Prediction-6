@@ -116,6 +116,7 @@ async function predictHeight(){
       return;
     }
 
+    // Load growth chart data
     const growthFile = (gender === "Male") ? "Male.json" : "Female.json";
     const growthRes = await fetch(growthFile);
     if (!growthRes.ok) throw new Error("Failed to load growth file: " + growthFile);
@@ -127,6 +128,7 @@ async function predictHeight(){
     const percentileKeys = Object.keys(firstRow).filter(k => /^P\d+/.test(k));
     if (percentileKeys.length === 0) throw new Error("Growth file missing percentile columns.");
 
+    // Interpolation
     const sorted = growthData.slice().sort((a,b)=> toNum(a.Age) - toNum(b.Age) );
     let lower = sorted[0], upper = sorted[sorted.length-1];
     for (let i=0;i<sorted.length;i++){
@@ -164,8 +166,9 @@ async function predictHeight(){
       {x: 18, y: predicted1, color:"green", label:"Height 1"}
     ];
 
+    let predicted2 = null, avg = null;
     if (method === "1") {
-      outText += `\n🔮 Predicted Height (Method 1): ${predicted1} cm\nRange (±1.75%): ${lower1} – ${upper1} cm`;
+      outText += `\n🔮 Predicted Height 1: ${predicted1} cm\nRange (±1.75%): ${lower1} – ${upper1} cm`;
     } else {
       const mother = toNum(document.getElementById("motherHeight").value);
       const father = toNum(document.getElementById("fatherHeight").value);
@@ -176,12 +179,13 @@ async function predictHeight(){
       }
       outText += `\n👩 Mother's Height: ${mother} cm\n👨 Father's Height: ${father} cm\n`;
 
+      // Load MPH data
       const mphFile = (gender === "Male") ? "male_mph.json" : "female_mph.json";
       const mphRes = await fetch(mphFile);
       if (!mphRes.ok) throw new Error("Failed to load MPH file: " + mphFile);
       const mphJson = await mphRes.json();
       const mphData = Array.isArray(mphJson) ? mphJson : (mphJson.data || mphJson);
-      if (!Array.isArray(mphData) || mphData.length === 0) throw new Error("MPH data empty or invalid: " + mphFile);
+      if (!Array.isArray(mphData) || mphData.length === 0) throw new Error("MPH data empty or invalid.");
 
       const sample = mphData[0];
       const midKey = findMidKey(sample) || "Midparental_m";
@@ -194,44 +198,48 @@ async function predictHeight(){
       const numericPercentile = toNum(nearestRow[percKey]);
       const mappedLabel = mapNumericPercentileToLabel(numericPercentile);
 
-      let predicted2 = toNum(adultRow[mappedLabel]);
+      predicted2 = toNum(adultRow[mappedLabel]);
       if (Number.isNaN(predicted2)) predicted2 = toNum(adultRow["P50"]);
       if (Number.isNaN(predicted2)) throw new Error("MPH-based predicted height not available.");
 
-      const avg = (predicted1 + predicted2) / 2;
+      avg = (predicted1 + predicted2) / 2;
       const avgSD = avg * 0.0175;
       const avgLower = rr(avg - avgSD), avgUpper = rr(avg + avgSD);
 
-      outText += `\n🔮 Predicted Height 1: ${predicted1} cm: ${lower1} – ${upper1} cm\n\n🔮 Predicted Height 2: ${rr(avg)} cm: ${avgLower} – ${avgUpper} cm`;
+      outText += `\n🔮 Predicted Height 1: ${predicted1} cm\nRange (±1.75%): ${lower1} – ${upper1} cm\n\n🔮 Predicted Height 2 (Avg): ${rr(avg)} cm\nRange (±1.75%): ${avgLower} – ${avgUpper} cm`;
       plotPoints.push({x:18, y: rr(avg), color:"blue", label:"Height 2"});
     }
-// --- Save to Google Sheets ---
-const sheetData = {
-  name,
-  state,
-  district,
-  gender,
-  age,
-  currentHeight,
-  motherHeight: (method === "2") ? mother : null,
-  fatherHeight: (method === "2") ? father : null,
-  predicted1,
-  predicted2: (method === "2") ? predicted2 : null,
-  avgPredicted: (method === "2") ? avg : null
-};
 
-fetch("https://script.google.com/macros/s/AKfycbwBcWSCLDCLC41JSgiDwZzPCzCPyN1X4Kr2L4C1QEpubOTcfynl1-xvVZxaYRbY7N2LjA/exec", {
-  method: "POST",
-  body: JSON.stringify(sheetData),
-  headers: { "Content-Type": "application/json" }
-})
-.then(r => r.text())
-.then(txt => console.log("Google Sheets:", txt))
-.catch(err => console.error("Google Sheets error:", err));
+    // --- Save to Google Sheets ---
+    const sheetData = {
+      name,
+      state,
+      district,
+      gender,
+      age,
+      currentHeight,
+      motherHeight: (method === "2") ? mother : null,
+      fatherHeight: (method === "2") ? father : null,
+      predicted1,
+      predicted2,
+      avgPredicted: avg
+    };
+
+    fetch("YOUR_GOOGLE_SCRIPT_URL", {
+      method: "POST",
+      body: JSON.stringify(sheetData),
+      headers: { "Content-Type": "application/json" }
+    })
+    .then(r => r.text())
+    .then(txt => console.log("Google Sheets:", txt))
+    .catch(err => console.error("Google Sheets error:", err));
+
+    // Show results
     resultsBox.style.display = "block";
     resultsBox.innerText = outText;
     document.getElementById("printBtn").style.display = "inline-block";
 
+    // Chart datasets
     const datasets = percentileKeys.map(pk=>{
       return {
         label: pk,
@@ -243,6 +251,7 @@ fetch("https://script.google.com/macros/s/AKfycbwBcWSCLDCLC41JSgiDwZzPCzCPyN1X4K
         pointRadius: 0
       };
     });
+
     plotPoints.forEach(pt=>{
       datasets.push({
         label: pt.label,
@@ -279,6 +288,7 @@ fetch("https://script.google.com/macros/s/AKfycbwBcWSCLDCLC41JSgiDwZzPCzCPyN1X4K
 </script>
 </body>
 </html>
+
 
 
 
