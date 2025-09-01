@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Height Prediction Calculator (fixed)</title>
+  <title>Height Prediction Calculator</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body { font-family: Arial, sans-serif; margin: 40px; background: #f4f8fc; }
@@ -20,87 +20,56 @@
 <body>
   <div class="container">
     <h1>Height Prediction Calculator</h1>
-
+    <!-- Form Fields -->
     <label><input type="radio" name="method" value="1" checked> Method 1 – If only child's height is known</label>
     <label><input type="radio" name="method" value="2"> Method 2 – If child's and both parents' height is known</label>
 
-    <label for="name">Name:</label>
-    <input id="name" type="text" placeholder="Child's name">
-
-    <label for="state">State:</label>
-    <input id="state" type="text" placeholder="State">
-
-    <label for="district">District:</label>
-    <input id="district" type="text" placeholder="District">
-
+    <label for="name">Name:</label><input id="name" type="text" placeholder="Child's name">
+    <label for="state">State:</label><input id="state" type="text" placeholder="State">
+    <label for="district">District:</label><input id="district" type="text" placeholder="District">
     <label for="gender">Gender:</label>
-    <select id="gender"><option>Male</option><option>Female</option></select>
+      <select id="gender"><option>Male</option><option>Female</option></select>
 
-    <label for="age">Current Age (years, decimals allowed):</label>
-    <input id="age" type="number" step="0.1" placeholder="e.g. 7.5">
-
-    <label for="height">Current Height (cm):</label>
-    <input id="height" type="number" step="0.1" placeholder="e.g. 125.4">
+    <label for="age">Current Age (years):</label><input id="age" type="number" step="0.1" placeholder="e.g. 7.5">
+    <label for="height">Current Height (cm):</label><input id="height" type="number" step="0.1" placeholder="e.g. 125.4">
 
     <div id="parentFields" style="display:none;">
-      <label for="motherHeight">Mother's Height (cm):</label>
-      <input id="motherHeight" type="number" step="0.1" placeholder="e.g. 160.0">
-
-      <label for="fatherHeight">Father's Height (cm):</label>
-      <input id="fatherHeight" type="number" step="0.1" placeholder="e.g. 172.0">
+      <label for="motherHeight">Mother's Height (cm):</label><input id="motherHeight" type="number" step="0.1">
+      <label for="fatherHeight">Father's Height (cm):</label><input id="fatherHeight" type="number" step="0.1">
     </div>
 
     <button id="predictBtn">Predict</button>
     <button id="printBtn" style="display:none" onclick="window.print()">🖨 Print Results</button>
-
     <div id="results" class="result" style="display:none"></div>
-
     <canvas id="growthChart" width="800" height="360"></canvas>
   </div>
 
 <script>
 let chart = null;
-const percentLabelMap = [ {key:"P3", v:3}, {key:"P10", v:10}, {key:"P25", v:25}, {key:"P50", v:50}, {key:"P75", v:75}, {key:"P90", v:90}, {key:"P97", v:97} ];
+const percentLabelMap = [{key:"P3",v:3},{key:"P10",v:10},{key:"P25",v:25},{key:"P50",v:50},{key:"P75",v:75},{key:"P90",v:90},{key:"P97",v:97}];
 
-document.querySelectorAll('input[name="method"]').forEach(el=>{
-  el.addEventListener("change", ()=>{
-    document.getElementById("parentFields").style.display = (document.querySelector('input[name="method"]:checked').value === "2") ? "block":"none";
+document.querySelectorAll('input[name="method"]').forEach(el => {
+  el.addEventListener("change", ()=> {
+    document.getElementById("parentFields").style.display = (document.querySelector('input[name="method"]:checked').value==="2")?"block":"none";
     document.getElementById("results").style.display = "none";
     document.getElementById("printBtn").style.display = "none";
   });
 });
 
-function toNum(v){ const n = Number(v); return Number.isFinite(n) ? n : NaN; }
-function findMidKey(obj){ return Object.keys(obj).find(k=>/midparent|midparental|mid/i.test(k)) || null; }
-function findPercentileNumberKey(obj){ return Object.keys(obj).find(k=>/percentile/i.test(k)) || null; }
-function mapNumericPercentileToLabel(num){
-  if (Number.isNaN(num)) return "P50";
-  let best = percentLabelMap[0];
-  for(const p of percentLabelMap) {
-    if (Math.abs(p.v - num) < Math.abs(best.v - num)) best = p;
-  }
-  return best.key;
-}
-function rr(n){ return (Math.round(n*100)/100).toFixed(2); }
-function getColor(p){
-  const colors = {
-    "P3": "rgba(255,99,132,1)",
-    "P10": "rgba(255,159,64,1)",
-    "P25": "rgba(255,205,86,1)",
-    "P50": "rgba(75,192,192,1)",
-    "P75": "rgba(54,162,235,1)",
-    "P90": "rgba(153,102,255,1)",
-    "P97": "rgba(201,203,207,1)"
-  };
-  return colors[p] || "black";
-}
+function toNum(v){const n=Number(v);return Number.isFinite(n)?n:NaN;}
+function findMidKey(o){return Object.keys(o).find(k=>/midparent|midparental|mid/i.test(k))||null;}
+function findPercentileNumberKey(o){return Object.keys(o).find(k=>/percentile/i.test(k))||null;}
+function mapNumericPercentileToLabel(n){if(Number.isNaN(n))return"P50";let b=percentLabelMap[0];for(const p of percentLabelMap)if(Math.abs(p.v-n)<Math.abs(b.v-n))b=p;return b.key;}
+function rr(n){return (Math.round(n*100)/100).toFixed(2);}
+function getColor(p){return{"P3":"rgba(255,99,132,1)","P10":"rgba(255,159,64,1)","P25":"rgba(255,205,86,1)","P50":"rgba(75,192,192,1)","P75":"rgba(54,162,235,1)","P90":"rgba(153,102,255,1)","P97":"rgba(201,203,207,1)"}[p]||"black";}
 
 document.getElementById("predictBtn").addEventListener("click", predictHeight);
 
 async function predictHeight(){
-  const resultsBox = document.getElementById("results");
-  resultsBox.style.display = "none";
-  document.getElementById("printBtn").style.display = "none";
+  const rb = document.getElementById("results");
+  rb.style.display="none";
+  document.getElementById("printBtn").style.display="none";
+
   try {
     const method = document.querySelector('input[name="method"]:checked').value;
     const name = document.getElementById("name").value.trim();
@@ -110,187 +79,145 @@ async function predictHeight(){
     const age = toNum(document.getElementById("age").value);
     const currentHeight = toNum(document.getElementById("height").value);
 
-    if (!name || !state || !district || Number.isNaN(age) || Number.isNaN(currentHeight)) {
-      resultsBox.style.display = "block";
-      resultsBox.innerText = "❌ Fill all required child fields correctly (Name, State, District, Age, Height).";
+    if(!name||!state||!district||Number.isNaN(age)||Number.isNaN(currentHeight)){
+      rb.style.display="block";
+      rb.innerText="❌ Fill all required child fields correctly.";
       return;
     }
 
-    // Load growth chart data
-    const growthFile = (gender === "Male") ? "Male.json" : "Female.json";
-    const growthRes = await fetch(growthFile);
-    if (!growthRes.ok) throw new Error("Failed to load growth file: " + growthFile);
-    const growthJson = await growthRes.json();
-    const growthData = Array.isArray(growthJson) ? growthJson : (growthJson.data || growthJson);
-    if (!Array.isArray(growthData) || growthData.length === 0) throw new Error("Growth data empty or invalid.");
+    const growthFile=(gender==="Male")?"Male.json":"Female.json";
+    const resp=await fetch(growthFile);
+    if(!resp.ok)throw new Error("Failed loading "+growthFile);
+    const growthJson=await resp.json();
+    const growthData=Array.isArray(growthJson)?growthJson:(growthJson.data||growthJson);
+    if(!Array.isArray(growthData)||!growthData.length)throw new Error("Invalid growth data.");
 
-    const firstRow = growthData[0];
-    const percentileKeys = Object.keys(firstRow).filter(k => /^P\d+/.test(k));
-    if (percentileKeys.length === 0) throw new Error("Growth file missing percentile columns.");
+    const firstRow=growthData[0];
+    const ps=Object.keys(firstRow).filter(k=>/^P\d+/.test(k));
+    if(!ps.length)throw new Error("Percentile columns missing.");
 
-    // Interpolation
-    const sorted = growthData.slice().sort((a,b)=> toNum(a.Age) - toNum(b.Age) );
-    let lower = sorted[0], upper = sorted[sorted.length-1];
-    for (let i=0;i<sorted.length;i++){
-      const a = toNum(sorted[i].Age);
-      if (a <= age) lower = sorted[i];
-      if (a >= age) { upper = sorted[i]; break; }
+    const sorted=growthData.slice().sort((a,b)=>toNum(a.Age)-toNum(b.Age));
+    let lower=sorted[0], upper=sorted[sorted.length-1];
+    for(let i=0;i<sorted.length;i++){
+      const a=toNum(sorted[i].Age);
+      if(a<=age)lower=sorted[i];
+      if(a>=age){upper=sorted[i];break;}
     }
-    const denom = (toNum(upper.Age) - toNum(lower.Age)) || 1;
-    const factor = (age - toNum(lower.Age)) / denom;
+    const denom=(toNum(upper.Age)-toNum(lower.Age))||1;
+    const factor=(age-toNum(lower.Age))/denom;
 
-    const interp = {};
-    percentileKeys.forEach(pk=>{
-      const lowVal = toNum(lower[pk]);
-      const upVal = toNum(upper[pk]);
-      interp[pk] = lowVal + factor * (upVal - lowVal);
+    const interp={};
+    ps.forEach(pk => {
+      const lv=toNum(lower[pk]), uv=toNum(upper[pk]);
+      interp[pk]=lv+factor*(uv-lv);
     });
 
-    let nearestLabel = percentileKeys[0];
-    let bestDiff = Math.abs(interp[nearestLabel] - currentHeight);
-    percentileKeys.forEach(pk=>{
-      const diff = Math.abs(interp[pk] - currentHeight);
-      if (diff < bestDiff) { bestDiff = diff; nearestLabel = pk; }
+    let nearest=ps[0], bestDiff=Math.abs(interp[nearest]-currentHeight);
+    ps.forEach(pk=>{
+      const d=Math.abs(interp[pk]-currentHeight);
+      if(d<bestDiff){bestDiff=d;nearest=pk;}
     });
 
-    const adultRow = sorted.find(r => Math.round(toNum(r.Age)) === 18) || sorted[sorted.length-1];
-    const predicted1 = toNum(adultRow[nearestLabel]);
-    if (Number.isNaN(predicted1)) throw new Error("Predicted Height 1 invalid.");
-    const sd1 = predicted1 * 0.0175;
-    const lower1 = rr(predicted1 - sd1), upper1 = rr(predicted1 + sd1);
+    const adultRow=sorted.find(r=>Math.round(toNum(r.Age))===18)||sorted[sorted.length-1];
+    const predicted1=toNum(adultRow[nearest]);
+    if(Number.isNaN(predicted1))throw new Error("Predicted Height 1 invalid.");
+    const sd1=predicted1*0.0175, l1=rr(predicted1-sd1), u1=rr(predicted1+sd1);
 
-    let outText = `👤 Name: ${name}\n🎂 Age: ${age} years\n⚧ Gender: ${gender}\n📏 Child's Height: ${currentHeight} cm\n`;
+    let out="👤 Name: "+name+"\n🎂 Age: "+age+" yrs\n⚧ Gender: "+gender+"\n📏 Height: "+currentHeight+" cm\n";
+    const plotPts=[{x:age,y:currentHeight,color:"red",label:"Current"},{x:18,y:predicted1,color:"green",label:"Height 1"}];
+    let predicted2=null, avg=null;
 
-    const plotPoints = [
-      {x: age, y: currentHeight, color:"red", label:"Current"},
-      {x: 18, y: predicted1, color:"green", label:"Height 1"}
-    ];
-
-    let predicted2 = null, avg = null;
-    if (method === "1") {
-      outText += `\n🔮 Predicted Height 1: ${predicted1} cm\nRange (±1.75%): ${lower1} – ${upper1} cm`;
+    if(method==="1"){
+      out+=`\n🔮 Predicted Height 1: ${predicted1} cm\nRange (±1.75%): ${l1} – ${u1} cm`;
     } else {
-      const mother = toNum(document.getElementById("motherHeight").value);
-      const father = toNum(document.getElementById("fatherHeight").value);
-      if (Number.isNaN(mother) || Number.isNaN(father)) {
-        resultsBox.style.display = "block";
-        resultsBox.innerText = "❌ For Method 2 please provide both parents' heights.";
+      const mom=toNum(document.getElementById("motherHeight").value), dad=toNum(document.getElementById("fatherHeight").value);
+      if(Number.isNaN(mom)||Number.isNaN(dad)){
+        rb.style.display="block";
+        rb.innerText="❌ Provide both parents' heights for Method 2.";
         return;
       }
-      outText += `\n👩 Mother's Height: ${mother} cm\n👨 Father's Height: ${father} cm\n`;
+      out+=`\n👩 Mother's: ${mom} cm\n👨 Father's: ${dad} cm\n`;
 
-      // Load MPH data
-      const mphFile = (gender === "Male") ? "male_mph.json" : "female_mph.json";
-      const mphRes = await fetch(mphFile);
-      if (!mphRes.ok) throw new Error("Failed to load MPH file: " + mphFile);
-      const mphJson = await mphRes.json();
-      const mphData = Array.isArray(mphJson) ? mphJson : (mphJson.data || mphJson);
-      if (!Array.isArray(mphData) || mphData.length === 0) throw new Error("MPH data empty or invalid.");
+      const mphFile=(gender==="Male")?"male_mph.json":"female_mph.json";
+      const mphRes=await fetch(mphFile);
+      if(!mphRes.ok)throw new Error("Failed loading "+mphFile);
+      const mphJson=await mphRes.json();
+      const mphData=Array.isArray(mphJson)?mphJson:(mphJson.data||mphJson);
+      if(!Array.isArray(mphData)||!mphData.length)throw new Error("Invalid MPH data.");
 
-      const sample = mphData[0];
-      const midKey = findMidKey(sample) || "Midparental_m";
-      const percKey = findPercentileNumberKey(sample) || "Percentile";
-      const mph = Math.round((mother + father) / 2);
+      const sample=mphData[0], mk=findMidKey(sample)||"Midparental_m", pk=findPercentileNumberKey(sample)||"Percentile";
+      const mphVal=Math.round((mom+dad)/2);
+      const nearestRow=mphData.reduce((best,cur)=>Math.abs(toNum(cur[mk])-mphVal)<Math.abs(toNum(best[mk])-mphVal)?cur:best,mphData[0]);
+      const numPerc=toNum(nearestRow[pk]), mapped=mapNumericPercentileToLabel(numPerc);
+      predicted2=toNum(adultRow[mapped]);
+      if(Number.isNaN(predicted2))predicted2=toNum(adultRow["P50"]);
+      if(Number.isNaN(predicted2))throw new Error("MPH-based predicted height unavailable.");
 
-      let nearestRow = mphData.reduce((best, cur) => 
-        Math.abs(toNum(cur[midKey]) - mph) < Math.abs(toNum(best[midKey]) - mph) ? cur : best, mphData[0]);
+      avg=(predicted1+predicted2)/2;
+      const asd=avg*0.0175, al=rr(avg-asd), au=rr(avg+asd);
+      out+=`\n🔮 Predicted Height 1: ${predicted1} cm\nRange (±1.75%): ${l1} – ${u1} cm\n\n🔮 Predicted Height 2 (Avg): ${rr(avg)} cm\nRange (±1.75%): ${al} – ${au} cm`;
 
-      const numericPercentile = toNum(nearestRow[percKey]);
-      const mappedLabel = mapNumericPercentileToLabel(numericPercentile);
-
-      predicted2 = toNum(adultRow[mappedLabel]);
-      if (Number.isNaN(predicted2)) predicted2 = toNum(adultRow["P50"]);
-      if (Number.isNaN(predicted2)) throw new Error("MPH-based predicted height not available.");
-
-      avg = (predicted1 + predicted2) / 2;
-      const avgSD = avg * 0.0175;
-      const avgLower = rr(avg - avgSD), avgUpper = rr(avg + avgSD);
-
-      outText += `\n🔮 Predicted Height 1: ${predicted1} cm\nRange (±1.75%): ${lower1} – ${upper1} cm\n\n🔮 Predicted Height 2 (Avg): ${rr(avg)} cm\nRange (±1.75%): ${avgLower} – ${avgUpper} cm`;
-      plotPoints.push({x:18, y: rr(avg), color:"blue", label:"Height 2"});
+      plotPts.push({x:18,y:rr(avg),color:"blue",label:"Height 2"});
     }
 
-    // --- Save to Google Sheets ---
+    //  Save to Google Sheets
     const sheetData = {
-      name,
-      state,
-      district,
-      gender,
-      age,
-      currentHeight,
-      motherHeight: (method === "2") ? mother : null,
-      fatherHeight: (method === "2") ? father : null,
-      predicted1,
-      predicted2,
-      avgPredicted: avg
+      name, state, district, gender, age, currentHeight,
+      motherHeight: (method==="2")?toNum(document.getElementById("motherHeight").value):null,
+      fatherHeight: (method==="2")?toNum(document.getElementById("fatherHeight").value):null,
+      predicted1, predicted2, avgPredicted: avg
     };
 
     fetch("https://script.google.com/macros/s/AKfycbw8_vvmTMYMQXITJyDCHLqELv35Z8gCK8mtafXVguaHCTvEbjZCQfK1v6LvuQz7DfLfHA/exec", {
       method: "POST",
-      body: JSON.stringify(sheetData),
-      headers: { "Content-Type": "application/json" }
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify(sheetData)
     })
-    .then(r => r.text())
-    .then(txt => console.log("Google Sheets:", txt))
-    .catch(err => console.error("Google Sheets error:", err));
+    .then(res=>res.text())
+    .then(txt=>console.log("Google Sheets:", txt))
+    .catch(err=>console.error("Sheets error:", err));
 
-    // Show results
-    resultsBox.style.display = "block";
-    resultsBox.innerText = outText;
-    document.getElementById("printBtn").style.display = "inline-block";
+    // display results
+    rb.style.display="block";
+    rb.innerText=out;
+    document.getElementById("printBtn").style.display="inline-block";
 
-    // Chart datasets
-    const datasets = percentileKeys.map(pk=>{
-      return {
-        label: pk,
-        data: growthData.map(r=>({x: toNum(r.Age), y: toNum(r[pk])})),
-        borderColor: getColor(pk),
-        backgroundColor: getColor(pk),
-        fill:false,
-        tension:0.2,
-        pointRadius: 0
-      };
-    });
+    // build chart
+    const datasets = ps.map(pk=>({
+      label: pk,
+      data: growthData.map(r=>({x:toNum(r.Age),y:toNum(r[pk])})),
+      borderColor: getColor(pk), backgroundColor: getColor(pk),
+      fill:false, tension:0.2, pointRadius:0
+    }));
 
-    plotPoints.forEach(pt=>{
+    plotPts.forEach(pt=>{
       datasets.push({
         label: pt.label,
-        data: [{x: toNum(pt.x), y: toNum(pt.y)}],
-        borderColor: pt.color,
-        backgroundColor: pt.color,
-        pointRadius: 12,
-        pointStyle: "circle",
-        showLine: false
+        data: [{x:toNum(pt.x),y:toNum(pt.y)}],
+        borderColor: pt.color, backgroundColor: pt.color,
+        pointRadius:12, pointStyle:"circle", showLine:false
       });
     });
 
-    if (chart) chart.destroy();
+    if(chart) chart.destroy();
     const ctx = document.getElementById("growthChart").getContext("2d");
-    chart = new Chart(ctx, {
-      type: "line",
-      data: { datasets },
-      options: {
-        responsive: true,
-        plugins: { legend: { position: "bottom", labels: { usePointStyle: true } } },
-        scales: {
-          x: { type: "linear", title: { display: true, text: "Age (years)" }, ticks: { precision: 0 } },
-          y: { title: { display: true, text: "Height (cm)" } }
-        }
+    chart = new Chart(ctx,{
+      type:"line",
+      data:{datasets},
+      options:{
+        responsive:true,
+        plugins:{legend:{position:"bottom",labels:{usePointStyle:true}}},
+        scales:{x:{type:"linear",title:{display:true,text:"Age (years)"},ticks:{precision:0}},
+                y:{title:{display:true,text:"Height (cm)"}}}
       }
     });
 
-  } catch (err) {
+  } catch(err) {
     console.error(err);
-    resultsBox.style.display = "block";
-    resultsBox.innerText = "❌ Error: " + (err.message || String(err));
+    rb.style.display="block";
+    rb.innerText="❌ Error: "+(err.message||String(err));
   }
 }
 </script>
 </body>
 </html>
-
-
-
-
-
-
