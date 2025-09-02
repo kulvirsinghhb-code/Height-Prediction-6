@@ -126,26 +126,13 @@ async function predictHeight(){
       plotPts.push({x:18,y:rr(avg),color:"blue",label:"Predicted2"});
     }
 
-    // Save to Google Sheets
+    // --- Save to Google Sheets ---
     const sheetData={name,state,district,gender,age,currentHeight,
       motherHeight:(method==="2")?document.getElementById("motherHeight").value:null,
       fatherHeight:(method==="2")?document.getElementById("fatherHeight").value:null,
       predicted1,predicted2,avgPredicted:avg};
 
-    fetch("https://script.google.com/macros/s/AKfycbzG8OpRMpsDrtAJOE7zHrE7EDN9AYsESPCeGTAwUDOSc65t3FL5Rpsyd3ivN4hdnFjSpg/exec", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(sheetData)
-})
-.then(r => r.text())
-.then(txt => {
-  console.log("Sheets server response:", txt);
-  alert("Sheets server response: " + txt);  // ✅ popup confirmation
-})
-.catch(err => {
-  console.error("Sheets error:", err);
-  alert("Sheets error: " + err.message);
-});
+    logToSheet(sheetData);  // ✅ send data
 
     // show results
     rb.style.display="block"; rb.innerText=out; document.getElementById("printBtn").style.display="inline-block";
@@ -159,10 +146,20 @@ async function predictHeight(){
       options:{responsive:true,plugins:{legend:{position:"bottom"}},scales:{x:{type:"linear",title:{display:true,text:"Age"}},y:{title:{display:true,text:"Height (cm)"}}}}});
   }catch(err){console.error(err);rb.style.display="block";rb.innerText="❌ "+err.message;}
 }
+
+// --- Google Sheets logging (no headers → works from GitHub/Vercel) ---
+async function logToSheet(payload) {
+  const url = "https://script.google.com/macros/s/AKfycbyfuKvU75YIWt5gJXdBV7qB40nUvnDG5IiF1VHUK_7tpDvP-02-yv8kpSf32anCURBD/exec";  // 👈 replace with your Apps Script /exec URL
+  try {
+    await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(payload)   // no headers → avoids CORS preflight
+    });
+  } catch (err) {
+    console.error("Logging failed", err);
+  }
+}
 </script>
 </body>
 </html>
-
-
-
 
