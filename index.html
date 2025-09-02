@@ -132,10 +132,11 @@ async function predictHeight(){
       fatherHeight:(method==="2")?document.getElementById("fatherHeight").value:null,
       predicted1,predicted2,avgPredicted:avg};
 
-    fetch("https://script.google.com/macros/s/AKfycbzG8OpRMpsDrtAJOE7zHrE7EDN9AYsESPCeGTAwUDOSc65t3FL5Rpsyd3ivN4hdnFjSpg/exec",{
-      method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(sheetData)
-    })
+    fetch("https://script.google.com/macros/s/AKfycbzG8OpRMpsDrtAJOE7zHrE7EDN9AYsESPCeGTAwUDOSc65t3FL5Rpsyd3ivN4hdnFjSpg/exec", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(sheetData)
+})
     .then(r=>r.text()).then(txt=>console.log("Sheets:",txt))
     .catch(err=>console.error("Sheets error:",err));
 
@@ -154,4 +155,5 @@ async function predictHeight(){
 </script>
 </body>
 </html>
+
 
