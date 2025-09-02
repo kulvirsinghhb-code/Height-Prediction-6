@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Sheets Test</title>
+</head>
+<body>
+  <h1>Google Sheets Test</h1>
+  <button id="sendBtn">Send Test Data</button>
+
+  <script>
+    document.getElementById("sendBtn").addEventListener("click", () => {
+      const testData = {
+        name: "Test Child",
+        state: "Punjab",
+        district: "Ludhiana",
+        gender: "Male",
+        age: 10,
+        currentHeight: 135,
+        motherHeight: 160,
+        fatherHeight: 172,
+        predicted1: 170,
+        predicted2: 172,
+        avgPredicted: 171
+      };
+
+      fetch("https://script.google.com/macros/s/AKfycbzG8OpRMpsDrtAJOE7zHrE7EDN9AYsESPCeGTAwUDOSc65t3FL5Rpsyd3ivN4hdnFjSpg/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(testData)
+      })
+      .then(res => res.text())
+      .then(txt => {
+        console.log("Sheets server response:", txt);
+        alert("Sheets server response: " + txt);
+      })
+      .catch(err => {
+        console.error("Sheets error:", err);
+        alert("Sheets error: " + err.message);
+      });
+    });
+  </script>
+</body>
+</html>
