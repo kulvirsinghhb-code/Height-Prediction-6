@@ -136,8 +136,15 @@ async function predictHeight(){
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(sheetData)
+}).then(r => r.text())
+.then(txt => {
+  console.log("Sheets server response:", txt);
+  alert("Sheets server response: " + txt);  // 👈 popup to confirm
 })
-    .then(r=>r.text()).then(txt=>console.log("Sheets:",txt))
+.catch(err => {
+  console.error("Sheets error:", err);
+  alert("Sheets error: " + err.message);
+});
     .catch(err=>console.error("Sheets error:",err));
 
     // show results
@@ -155,5 +162,6 @@ async function predictHeight(){
 </script>
 </body>
 </html>
+
 
 
