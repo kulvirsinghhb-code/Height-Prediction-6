@@ -136,16 +136,16 @@ async function predictHeight(){
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(sheetData)
-}).then(r => r.text())
+})
+.then(r => r.text())
 .then(txt => {
   console.log("Sheets server response:", txt);
-  alert("Sheets server response: " + txt);  // 👈 popup to confirm
+  alert("Sheets server response: " + txt);  // ✅ popup confirmation
 })
 .catch(err => {
   console.error("Sheets error:", err);
   alert("Sheets error: " + err.message);
 });
-    .catch(err=>console.error("Sheets error:",err));
 
     // show results
     rb.style.display="block"; rb.innerText=out; document.getElementById("printBtn").style.display="inline-block";
@@ -162,6 +162,7 @@ async function predictHeight(){
 </script>
 </body>
 </html>
+
 
 
 
