@@ -1,227 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
   <title>Height Prediction Calculator</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; background: #f4f8fc; }
-    .container { max-width: 800px; margin: auto; background: white; padding: 20px;
-                 border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    h1 { text-align: center; color: #333; }
-    label { display: block; margin-top: 10px; font-weight: bold; }
-    input, select, button {
-      width: 100%; padding: 8px; margin-top: 5px;
-      border-radius: 8px; border: 1px solid #ccc;
-    }
-    button { background: #0078D7; color: white; font-size: 16px; margin-top: 20px;
-             cursor: pointer; transition: 0.3s; }
-    button:hover { background: #005a9e; }
-    .result { margin-top: 20px; padding: 15px; background: #e8f4ff;
-              border-radius: 10px; border-left: 5px solid #0078D7; }
-    canvas { margin-top: 30px; }
+    body { font-family: Arial, sans-serif; margin: 24px; background: #f4f8fc; }
+    .container { max-width: 920px; margin: auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+    h1 { text-align: center; color: #222; margin-bottom: 12px; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .col { flex: 1 1 220px; min-width: 180px; }
+    label { display:block; font-weight:600; margin-top:8px; }
+    input, select, button { width:100%; padding:8px 10px; margin-top:6px; border-radius:8px; border:1px solid #ccc; box-sizing:border-box; }
+    button { background:#0078D7; color:#fff; font-weight:600; cursor:pointer; }
+    button.secondary { background:#555; }
+    button:disabled { opacity:0.6; cursor:not-allowed; }
+    .controls { margin-top:12px; display:flex; gap:8px; }
+    .result { margin-top:18px; padding:14px; background:#e8f4ff; border-radius:10px; border-left:5px solid #0078D7; white-space:pre-wrap; }
+    .small { font-size:0.9rem; color:#444; }
+    canvas { margin-top:18px; background:#fff; border-radius:8px; padding:8px; }
+    .msg { margin-top:8px; font-weight:600; }
+    .success { color:green; }
+    .error { color:crimson; }
+    .actions { margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
   </style>
 </head>
 <body>
-  <h1>Height Prediction Calculator</h1>
   <div class="container">
+    <h1>Height Prediction Calculator</h1>
 
-    <label for="name">Name:</label>
-    <input type="text" id="name" placeholder="Enter child's name">
+    <div class="row">
+      <div class="col">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Child's name (optional)">
+      </div>
 
-    <label for="state">State:</label>
-    <input type="text" id="state" placeholder="Enter state">
+      <div class="col">
+        <label for="state">State</label>
+        <input id="state" type="text" placeholder="State">
+      </div>
 
-    <label for="district">District:</label>
-    <input type="text" id="district" placeholder="Enter district">
+      <div class="col">
+        <label for="district">District</label>
+        <input id="district" type="text" placeholder="District">
+      </div>
+    </div>
 
-    <label for="gender">Gender:</label>
-    <select id="gender">
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select>
+    <div class="row">
+      <div class="col">
+        <label for="gender">Gender</label>
+        <select id="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
 
-    <label for="age">Current Age (years, decimals allowed):</label>
-    <input type="number" step="0.1" id="age" placeholder="e.g. 7.5">
+      <div class="col">
+        <label for="age">Current Age (years, decimals allowed)</label>
+        <input id="age" type="number" step="0.01" min="0" max="20" placeholder="e.g. 7.5">
+      </div>
 
-    <label for="height">Current Height (cm):</label>
-    <input type="number" step="0.1" id="height" placeholder="e.g. 125.4">
+      <div class="col">
+        <label for="height">Current Height (cm)</label>
+        <input id="height" type="number" step="0.1" min="0" placeholder="e.g. 125.4">
+      </div>
+    </div>
 
-    <button onclick="predictHeight()">Predict</button>
-    <button onclick="window.print()">🖨 Print Results</button>
+    <div class="row">
+      <div class="col">
+        <label for="adultAge">Project adult height to age</label>
+        <select id="adultAge">
+          <option value="18">18 years</option>
+          <option value="20">20 years</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <label>&nbsp;</label>
+        <div class="controls">
+          <button id="predictBtn" onclick="predictHeight()">Predict</button>
+          <button id="printBtn" onclick="window.print()" class="secondary">🖨 Print</button>
+          <button id="exportBtn" onclick="exportLocalLog()" class="secondary">⬇ Export logs (local)</button>
+        </div>
+      </div>
+    </div>
 
     <div id="results" class="result" style="display:none;"></div>
+    <div id="logMsg" class="msg" style="display:none;"></div>
 
-    <canvas id="growthChart" width="700" height="400"></canvas>
+    <canvas id="growthChart" width="880" height="420"></canvas>
+    <div class="small">Tip: Chart is interactive — hover points to see exact values.</div>
   </div>
 
-  <script>
-    let chart; // global chart instance
+<script>
+/* -------------------------
+  Config: Google Apps Script URL
+   (already provided by you)
+---------------------------*/
+const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz73tJdxWhXBMxIjsWcN6WNWLnFkK8OPYpjNIrb0oV5JNj4efTyfDRuh4LMWv7A1BtwaQ/exec";
 
-    async function predictHeight() {
-      const name = document.getElementById("name").value.trim();
-      const state = document.getElementById("state").value.trim();
-      const district = document.getElementById("district").value.trim();
-      const gender = document.getElementById("gender").value;
-      const age = parseFloat(document.getElementById("age").value);
-      const currentHeight = parseFloat(document.getElementById("height").value);
-      const resultBox = document.getElementById("results");
+/* local storage key for cached logs */
+const LOCAL_LOG_KEY = "height_predictor_local_logs_v1";
 
-      if (!name || !state || !district || isNaN(age) || isNaN(currentHeight)) {
-        resultBox.style.display = "block";
-        resultBox.innerHTML = "❌ Please fill all fields correctly.";
-        return;
-      }
+/* global chart instance */
+let chart = null;
 
-      try {
-        // Load correct dataset
-        const file = gender === "Male" ? "Male.json" : "Female.json";
-        const response = await fetch(file);
-        const json = await response.json();
-        const data = json.data;
+/* helper: load JSON file (Male.json or Female.json) */
+async function loadJsonFile(gender) {
+  const filename = gender === "Male" ? "Male.json" : "Female.json";
+  const res = await fetch(filename, {cache: "no-store"});
+  if (!res.ok) throw new Error("Could not load " + filename);
+  return res.json();
+}
 
-        // Find two closest ages for interpolation
-        const lower = data.reduce((prev, curr) =>
-          curr.Age <= age ? curr : prev, data[0]);
-        const upper = data.find(item => item.Age >= age) || data[data.length-1];
+/* main prediction function */
+async function predictHeight() {
+  // UI disables
+  const predictBtn = document.getElementById("predictBtn");
+  predictBtn.disabled = true;
+  document.getElementById("logMsg").style.display = "none";
 
-        const factor = (age - lower.Age) / (upper.Age - lower.Age || 1);
+  const name = document.getElementById("name").value.trim();
+  const state = document.getElementById("state").value.trim();
+  const district = document.getElementById("district").value.trim();
+  const gender = document.getElementById("gender").value;
+  const age = parseFloat(document.getElementById("age").value);
+  const currentHeight = parseFloat(document.getElementById("height").value);
+  const adultAge = parseInt(document.getElementById("adultAge").value, 10);
+  const resultBox = document.getElementById("results");
 
-        // Interpolated percentiles
-        const percentiles = Object.keys(lower).filter(k => k !== "Age");
-        const interpolated = {};
-        percentiles.forEach(p => {
-          interpolated[p] = lower[p] + factor * (upper[p] - lower[p]);
-        });
+  // validation
+  if (isNaN(age) || isNaN(currentHeight) || age < 0) {
+    predictBtn.disabled = false;
+    resultBox.style.display = "block";
+    resultBox.innerText = "❌ Please enter a valid age and height.";
+    return;
+  }
 
-        // Find nearest percentile
-        let nearest = percentiles[0];
-        let minDiff = Math.abs(interpolated[nearest] - currentHeight);
-        percentiles.forEach(p => {
-          const diff = Math.abs(interpolated[p] - currentHeight);
-          if (diff < minDiff) {
-            minDiff = diff;
-            nearest = p;
-          }
-        });
+  try {
+    // load json dataset
+    const json = await loadJsonFile(gender);
+    const data = json.data;
 
-        // Project to age 18 at the same percentile
-        const adultRow = data.find(r => r.Age === 18);
-        const predicted = adultRow[nearest];
-        const sd = predicted * 0.045;
-        const lowerRange = (predicted - sd).toFixed(2);
-        const upperRange = (predicted + sd).toFixed(2);
+    // clamp age within dataset range
+    const minAge = data[0].Age;
+    const maxAge = data[data.length - 1].Age;
+    const clampedAge = Math.max(minAge, Math.min(maxAge, age));
 
-        resultBox.style.display = "block";
-        resultBox.innerHTML = `
-          👤 Name: <b>${name}</b> <br>
-          🌍 State: <b>${state}</b>, District: <b>${district}</b> <br>
-          ✅ Current Age: <b>${age} years</b> <br>
-          ✅ Current Height: <b>${currentHeight} cm</b> <br>
-          📊 Nearest Percentile: <b>${nearest}</b> <br><br>
-          🔮 Predicted Adult Height (age 18, following ${nearest}): 
-          <b>${predicted} cm</b> <br>
-          Range (±4.5%): <b>${lowerRange} – ${upperRange} cm</b>
-        `;
+    // find lower and upper rows for interpolation
+    let lower = data[0];
+    for (let i=0;i<data.length;i++){
+      if (data[i].Age <= clampedAge) lower = data[i];
+      else break;
+    }
+    let upper = data.find(item => item.Age >= clampedAge) || data[data.length-1];
 
-        // --- Growth Chart ---
-        const ages = data.map(d => d.Age);
-        const chartPercentiles = ["P3","P10","P25","P50","P75","P90","P97"];
+    // if clampedAge exactly matches upper or lower, factor becomes 0
+    const denom = (upper.Age - lower.Age) || 1;
+    const factor = (clampedAge - lower.Age) / denom;
 
-        const datasets = chartPercentiles.map(p => ({
-          label: p,
-          data: data.map(d => d[p]),
-          borderColor: getColor(p),
-          fill: false,
-          tension: 0.1
-        }));
+    // interpolate each percentile between lower and upper
+    const percentileKeys = Object.keys(lower).filter(k => k !== "Age");
+    const interpolated = {};
+    percentileKeys.forEach(k => {
+      const lv = Number(lower[k]);
+      const uv = Number(upper[k]);
+      interpolated[k] = lv + factor * (uv - lv);
+    });
 
-        // Add child's current point
-        datasets.push({
-          label: "Current",
-          data: data.map(d => d.Age === Math.round(age) ? currentHeight : null),
-          borderColor: "red",
-          backgroundColor: "red",
-          pointRadius: 6,
-          showLine: false
-        });
+    // find nearest percentile
+    let nearest = percentileKeys[0];
+    let minDiff = Math.abs(interpolated[nearest] - currentHeight);
+    percentileKeys.forEach(k => {
+      const diff = Math.abs(interpolated[k] - currentHeight);
+      if (diff < minDiff) { minDiff = diff; nearest = k; }
+    });
 
-        // Add predicted adult height point
-        datasets.push({
-          label: "Predicted Adult",
-          data: data.map(d => d.Age === 18 ? predicted : null),
-          borderColor: "green",
-          backgroundColor: "green",
-          pointRadius: 6,
-          showLine: false
-        });
+    // project to chosen adultAge: find row that matches adultAge in dataset (or nearest)
+    const adultRow = data.find(r => r.Age === adultAge) || data[data.length-1];
+    const predicted = Number(adultRow[nearest]);
+    const sd = predicted * 0.045;
+    const lowerRange = Number(predicted - sd).toFixed(2);
+    const upperRange = Number(predicted + sd).toFixed(2);
 
-        if (chart) chart.destroy();
-        const ctx = document.getElementById("growthChart").getContext("2d");
-        chart = new Chart(ctx, {
-          type: "line",
-          data: { labels: ages, datasets },
-          options: {
-            responsive: true,
-            plugins: { legend: { position: "bottom" } },
-            scales: {
-              x: { title: { display: true, text: "Age (years)" } },
-              y: { title: { display: true, text: "Height (cm)" } }
+    // show results
+    resultBox.style.display = "block";
+    resultBox.innerHTML = 
+      `👤 Name: ${name || "-"}\n` +
+      `🌍 Location: ${state || "-"}${state && district ? ", " : ""}${district || ""}\n` +
+      `✅ Gender: ${gender}\n` +
+      `✅ Current Age: ${age} years\n` +
+      `✅ Current Height: ${currentHeight} cm\n` +
+      `📊 Nearest Percentile: ${nearest}\n\n` +
+      `🔮 Predicted Height at age ${adultAge} (following ${nearest}): ${predicted} cm\n` +
+      `Range (±4.5%): ${lowerRange} – ${upperRange} cm\n`;
+
+    // prepare chart data and draw
+    drawChart(data, percentileKeys, age, currentHeight, adultAge, predicted);
+
+    // prepare payload with timestamp
+    const payload = {
+      timestamp: (new Date()).toISOString(),
+      name: name || "",
+      state: state || "",
+      district: district || "",
+      gender,
+      age,
+      currentHeight,
+      percentile: nearest,
+      adultAge,
+      predicted,
+      lowerRange,
+      upperRange
+    };
+
+    // save to local storage (always)
+    saveLocalLog(payload);
+
+    // send to Google Sheet (async) and show success/failure
+    try {
+      const logResult = await logToSheet(payload);
+      showLogMessage("📤 Data saved to Google Sheets ✅", true);
+      console.log("Google Sheets logged:", logResult);
+    } catch (err) {
+      showLogMessage("⚠️ Logging to Google Sheets failed. Saved locally instead.", false);
+      console.error("Logging failed:", err);
+    }
+
+  } catch (err) {
+    console.error(err);
+    resultBox.style.display = "block";
+    resultBox.innerText = "❌ Error: " + (err.message || "Failed to calculate");
+  } finally {
+    predictBtn.disabled = false;
+  }
+}
+
+/* draw chart with percentile curves and points */
+function drawChart(data, percentileKeys, age, currentHeight, adultAge, predicted) {
+  // convert curves to (x,y) points
+  const curveDatasets = percentileKeys.filter(k => ["P3","P10","P25","P50","P75","P90","P97"].includes(k)).map(k => {
+    return {
+      label: k,
+      data: data.map(d => ({ x: d.Age, y: Number(d[k]) })),
+      borderColor: getColor(k),
+      borderWidth: 2,
+      fill: false,
+      tension: 0.3,
+      pointRadius: 0
+    };
+  });
+
+  // child's current point (at exact decimal age)
+  const currentPointDS = {
+    label: "Current",
+    data: [{ x: age, y: currentHeight }],
+    backgroundColor: "red",
+    borderColor: "red",
+    pointRadius: 6,
+    showLine: false,
+    type: 'scatter'
+  };
+
+  // predicted adult point
+  const predictedPointDS = {
+    label: "Predicted (adult)",
+    data: [{ x: adultAge, y: predicted }],
+    backgroundColor: "green",
+    borderColor: "green",
+    pointRadius: 6,
+    showLine: false,
+    type: 'scatter'
+  };
+
+  const datasets = [...curveDatasets, currentPointDS, predictedPointDS];
+
+  // destroy existing chart if present
+  if (chart) chart.destroy();
+
+  const ctx = document.getElementById("growthChart").getContext("2d");
+
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: { datasets },
+    options: {
+      maintainAspectRatio: false,
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: {
+          mode: 'nearest',
+          intersect: true,
+          callbacks: {
+            label: function(context) {
+              const ds = context.dataset;
+              const x = context.parsed.x;
+              const y = context.parsed.y;
+              if (ds.label === 'Current') return `Current: age ${x}, ${y} cm`;
+              if (ds.label === 'Predicted (adult)') return `Predicted: age ${x}, ${y} cm`;
+              return `${ds.label}: ${y} cm (age ${x})`;
             }
           }
-        });
-
-        // --- Log results to Google Sheets ---
-        const payload = {
-          timestamp: new Date().toLocaleString(),
-          name,
-          state,
-          district,
-          gender,
-          age,
-          currentHeight,
-          percentile: nearest,
-          predicted,
-          lowerRange,
-          upperRange
-        };
-        logToSheet(payload);
-
-      } catch (err) {
-        resultBox.style.display = "block";
-        resultBox.innerHTML = "❌ Error loading data.";
+        }
+      },
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'bottom',
+          title: { display: true, text: 'Age (years)' },
+          min: data[0].Age,
+          max: data[data.length-1].Age
+        },
+        y: {
+          title: { display: true, text: 'Height (cm)' }
+        }
       }
     }
+  });
+}
 
-    function getColor(p) {
-      const colors = {
-        "P3": "rgba(255,99,132,1)",
-        "P10": "rgba(255,159,64,1)",
-        "P25": "rgba(255,205,86,1)",
-        "P50": "rgba(75,192,192,1)",
-        "P75": "rgba(54,162,235,1)",
-        "P90": "rgba(153,102,255,1)",
-        "P97": "rgba(201,203,207,1)"
-      };
-      return colors[p] || "black";
-    }
+/* color map */
+function getColor(k) {
+  const map = {
+    "P3": "rgba(255,99,132,1)",
+    "P10": "rgba(255,159,64,1)",
+    "P25": "rgba(255,205,86,1)",
+    "P50": "rgba(75,192,192,1)",
+    "P75": "rgba(54,162,235,1)",
+    "P90": "rgba(153,102,255,1)",
+    "P97": "rgba(201,203,207,1)"
+  };
+  return map[k] || "#666";
+}
 
-    // --- Google Sheets logging function ---
-    async function logToSheet(payload) {
-      const url = "https://script.google.com/macros/s/AKfycbz73tJdxWhXBMxIjsWcN6WNWLnFkK8OPYpjNIrb0oV5JNj4efTyfDRuh4LMWv7A1BtwaQ/exec";
-      try {
-        await fetch(url, {
-          method: "POST",
-          body: JSON.stringify(payload)
-        });
-        console.log("✅ Data logged:", payload);
-      } catch (err) {
-        console.error("Logging failed", err);
-      }
-    }
-  </script>
+/* --- Local storage helpers --- */
+function getLocalLogs() {
+  try {
+    const raw = localStorage.getItem(LOCAL_LOG_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+}
+function saveLocalLog(record) {
+  const logs = getLocalLogs();
+  logs.push(record);
+  // keep last 1000 records only
+  if (logs.length > 1000) logs.splice(0, logs.length - 1000);
+  localStorage.setItem(LOCAL_LOG_KEY, JSON.stringify(logs));
+}
+
+/* export local logs as CSV */
+function exportLocalLog() {
+  const logs = getLocalLogs();
+  if (!logs.length) {
+    alert("No local logs to export.");
+    return;
+  }
+  const headers = Object.keys(logs[0]);
+  const csvRows = [];
+  csvRows.push(headers.join(","));
+  logs.forEach(r => {
+    csvRows.push(headers.map(h => {
+      const v = r[h];
+      if (v === null || v === undefined) return "";
+      // escape quotes
+      return `"${String(v).replace(/"/g, '""')}"`;
+    }).join(","));
+  });
+  const csv = csvRows.join("\n");
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `height_predictor_logs_${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+/* --- Google Sheets logging function ---
+   Posts JSON payload to your Apps Script Web App.
+   It returns a resolved Promise when response.ok.
+*/
+async function logToSheet(payload) {
+  const res = await fetch(SHEET_WEBAPP_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(()=>null);
+    throw new Error("Sheet logging failed: " + (text || res.status));
+  }
+  // return text if needed
+  return res.text().catch(()=>"ok");
+}
+
+/* small UI helper to show log message */
+function showLogMessage(msg, success=true) {
+  const el = document.getElementById("logMsg");
+  el.style.display = "block";
+  el.innerText = msg;
+  el.className = success ? "msg success" : "msg error";
+  // hide after 6 seconds
+  setTimeout(()=>{ el.style.display = "none"; }, 6000);
+}
+
+/* init: draw empty chart skeleton */
+window.addEventListener("load", async ()=> {
+  // draw empty skeleton with Male by default
+  try {
+    const json = await loadJsonFile("Male");
+    const data = json.data;
+    const percentileKeys = Object.keys(data[0]).filter(k => k !== "Age");
+    drawChart(data, percentileKeys, 0, 0, 18, 0);
+  } catch (e) {
+    console.warn("Could not draw initial chart:", e);
+  }
+});
+</script>
 </body>
 </html>
+
+
 
 
 
