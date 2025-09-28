@@ -6,15 +6,14 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body { font-family: Arial, sans-serif; margin: 24px; background: #f4f8fc; }
-    .container { max-width: 920px; margin: auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
-    h1 { text-align: center; color: #222; margin-bottom: 12px; }
+    .container { max-width: 960px; margin: auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+    h1 { text-align: center; color: #222; margin-bottom: 16px; }
     .row { display: flex; gap: 12px; flex-wrap: wrap; }
     .col { flex: 1 1 220px; min-width: 180px; }
     label { display:block; font-weight:600; margin-top:8px; }
     input, select, button { width:100%; padding:8px 10px; margin-top:6px; border-radius:8px; border:1px solid #ccc; box-sizing:border-box; }
     button { background:#0078D7; color:#fff; font-weight:600; cursor:pointer; }
     button.secondary { background:#555; }
-    button:disabled { opacity:0.6; cursor:not-allowed; }
     .controls { margin-top:12px; display:flex; gap:8px; }
     .result { margin-top:18px; padding:14px; background:#e8f4ff; border-radius:10px; border-left:5px solid #0078D7; white-space:pre-wrap; }
     .small { font-size:0.9rem; color:#444; }
@@ -28,10 +27,19 @@
   <div class="container">
     <h1>Height Prediction Calculator</h1>
 
+    <!-- Name -->
     <div class="row">
       <div class="col">
         <label for="name">Name</label>
         <input id="name" type="text" placeholder="Child's name (optional)">
+      </div>
+    </div>
+
+    <!-- Location -->
+    <div class="row">
+      <div class="col">
+        <label for="country">Country</label>
+        <input id="country" type="text" placeholder="Country">
       </div>
       <div class="col">
         <label for="state">State</label>
@@ -43,6 +51,7 @@
       </div>
     </div>
 
+    <!-- Gender, Age, Height -->
     <div class="row">
       <div class="col">
         <label for="gender">Gender</label>
@@ -61,6 +70,30 @@
       </div>
     </div>
 
+    <!-- Mode toggle -->
+    <div class="row">
+      <div class="col">
+        <label>Prediction Mode</label>
+        <select id="mode" onchange="toggleParents()">
+          <option value="child">Child only (Percentile-based)</option>
+          <option value="child_parents">Child + Parents (Percentile + MPH)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Parents Heights (hidden by default) -->
+    <div class="row" id="parentsSection" style="display:none;">
+      <div class="col">
+        <label for="father">Father's Height (cm)</label>
+        <input id="father" type="number" step="0.1" min="0" placeholder="e.g. 172.0">
+      </div>
+      <div class="col">
+        <label for="mother">Mother's Height (cm)</label>
+        <input id="mother" type="number" step="0.1" min="0" placeholder="e.g. 160.0">
+      </div>
+    </div>
+
+    <!-- Adult age -->
     <div class="row">
       <div class="col">
         <label for="adultAge">Project adult height to age</label>
@@ -69,8 +102,11 @@
           <option value="20">20 years</option>
         </select>
       </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="row">
       <div class="col">
-        <label>&nbsp;</label>
         <div class="controls">
           <button id="predictBtn" onclick="predictHeight()">Predict</button>
           <button onclick="window.print()" class="secondary">🖨 Print</button>
@@ -78,99 +114,129 @@
       </div>
     </div>
 
+    <!-- Results -->
     <div id="results" class="result" style="display:none;"></div>
     <div id="logMsg" class="msg" style="display:none;"></div>
 
-    <canvas id="growthChart" width="880" height="420"></canvas>
-    <div class="small">Hover over lines to see percentile values. Red = current, Green = predicted, Blue = trajectory.</div>
+    <!-- Chart -->
+    <canvas id="growthChart" width="920" height="420"></canvas>
+    <div class="small">Red = current, Green = percentile-based predicted, Purple = MPH-based predicted (if parents provided), Blue dashed = trajectory.</div>
   </div>
 
 <script>
-const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxe7TiE4ga-E8dP9Ms1AsUkVaq1qvJgMMrIGvMySOOXK5KKBTIjvqHrrIlNEgur-ZJPEg/exec";
+const SHEET_WEBAPP_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL";
 let chart = null;
 
-/* Load dataset */
-async function loadJsonFile(gender) {
-  const filename = gender === "Male" ? "Male.json" : "Female.json";
+function toggleParents() {
+  const mode = document.getElementById("mode").value;
+  const parentsSection = document.getElementById("parentsSection");
+  if (mode === "child_parents") {
+    parentsSection.style.display = "flex";
+  } else {
+    parentsSection.style.display = "none";
+    document.getElementById("father").value = "";
+    document.getElementById("mother").value = "";
+  }
+}
+
+async function loadJsonFile(filename) {
   const res = await fetch(filename, { cache: "no-store" });
   if (!res.ok) throw new Error("Could not load " + filename);
   return res.json();
 }
 
-/* Main prediction */
 async function predictHeight() {
   const name = document.getElementById("name").value.trim();
+  const country = document.getElementById("country").value.trim();
   const state = document.getElementById("state").value.trim();
   const district = document.getElementById("district").value.trim();
   const gender = document.getElementById("gender").value;
   const age = parseFloat(document.getElementById("age").value);
   const currentHeight = parseFloat(document.getElementById("height").value);
+  const father = parseFloat(document.getElementById("father").value);
+  const mother = parseFloat(document.getElementById("mother").value);
   const adultAge = parseInt(document.getElementById("adultAge").value, 10);
+  const mode = document.getElementById("mode").value;
   const resultBox = document.getElementById("results");
 
   if (isNaN(age) || isNaN(currentHeight)) {
     resultBox.style.display = "block";
-    resultBox.innerText = "❌ Please enter a valid age and height.";
+    resultBox.innerText = "❌ Please enter valid age and current height.";
     return;
   }
 
   try {
-    const json = await loadJsonFile(gender);
-    const data = json.data;
+    const mainFile = gender === "Male" ? "Male.json" : "Female.json";
+    const mainJson = await loadJsonFile(mainFile);
+    const mainData = mainJson.data;
 
-    // Find lower and upper rows for interpolation
-    let lower = data[0];
-    for (let i=0; i<data.length; i++) {
-      if (data[i].Age <= age) lower = data[i]; else break;
+    // --- Percentile-based prediction ---
+    let lower = mainData[0];
+    for (let i=0;i<mainData.length;i++){
+      if (mainData[i].Age <= age) lower = mainData[i]; else break;
     }
-    let upper = data.find(item => item.Age >= age) || data[data.length-1];
+    let upper = mainData.find(item => item.Age >= age) || mainData[mainData.length-1];
     const factor = (age - lower.Age) / ((upper.Age - lower.Age) || 1);
-
-    // Interpolated percentiles
-    const percentiles = Object.keys(lower).filter(k => k !== "Age");
+    const percentileKeys = Object.keys(lower).filter(k => k !== "Age");
     const interpolated = {};
-    percentiles.forEach(p => {
-      interpolated[p] = lower[p] + factor * (upper[p] - lower[p]);
+    percentileKeys.forEach(k => {
+      interpolated[k] = Number(lower[k]) + factor * (Number(upper[k]) - Number(lower[k]));
     });
-
-    // Find nearest percentile
-    let nearest = percentiles[0];
+    let nearest = percentileKeys[0];
     let minDiff = Math.abs(interpolated[nearest] - currentHeight);
-    percentiles.forEach(p => {
-      const diff = Math.abs(interpolated[p] - currentHeight);
-      if (diff < minDiff) { minDiff = diff; nearest = p; }
+    percentileKeys.forEach(k => {
+      const diff = Math.abs(interpolated[k] - currentHeight);
+      if (diff < minDiff) { minDiff = diff; nearest = k; }
     });
+    const adultRow = mainData.find(r => r.Age === adultAge) || mainData[mainData.length-1];
+    const predicted_percentileBased = Number(adultRow[nearest]);
 
-    // Project to adult age
-    const adultRow = data.find(r => r.Age === adultAge) || data[data.length-1];
-    const predicted = adultRow[nearest];
-    const sd = predicted * 0.045;
-    const lowerRange = (predicted - sd).toFixed(2);
-    const upperRange = (predicted + sd).toFixed(2);
+    // --- MPH-based prediction (if mode=child_parents) ---
+    let predicted_mph = null, mphPercentile = null, mph = null;
+    if (mode === "child_parents" && !isNaN(father) && !isNaN(mother)) {
+      mph = (father + mother) / 2;
+      const mphFile = gender === "Male" ? "male_mph.json" : "female_mph.json";
+      const mphJson = await loadJsonFile(mphFile);
+      const mphData = mphJson.data;
+      let closestRow = mphData[0];
+      let minDiff = Math.abs(mphData[0].Midparental_m - mph);
+      mphData.forEach(row => {
+        const diff = Math.abs(row.Midparental_m - mph);
+        if (diff < minDiff) { minDiff = diff; closestRow = row; }
+      });
+      mphPercentile = closestRow.Percentile;
+      if (adultRow[mphPercentile]) {
+        predicted_mph = Number(adultRow[mphPercentile]);
+      }
+    }
 
-    // Show results
+    // --- Display ---
+    let html = "";
+    html += `✅ Gender: <b>${gender}</b>\n`;
+    html += `✅ Age: <b>${age} years</b>\n`;
+    html += `🌍 Country: <b>${country||"-"}</b>\n`;
+    html += `🏞️ State: <b>${state||"-"}</b>, District: <b>${district||"-"}</b>\n\n`;
+    html += `📊 Predicted Adult Height (Percentile-based): <b>${predicted_percentileBased} cm</b>\n`;
+    if (predicted_mph) {
+      html += `📊 Predicted Adult Height (MPH-based): <b>${predicted_mph} cm</b>\n`;
+    }
     resultBox.style.display = "block";
-    resultBox.innerHTML = `
-      👤 Name: <b>${name||"-"}</b><br>
-      🌍 Location: <b>${state||"-"}, ${district||"-"}</b><br>
-      ✅ Gender: <b>${gender}</b><br>
-      ✅ Current Age: <b>${age} years</b><br>
-      ✅ Current Height: <b>${currentHeight} cm</b><br>
-      📊 Nearest Percentile: <b>${nearest}</b><br><br>
-      🔮 Predicted Adult Height at <b>${adultAge}</b> (following ${nearest}): 
-      <b>${predicted} cm</b><br>
-      Range (±4.5%): <b>${lowerRange} – ${upperRange} cm</b>
-    `;
+    resultBox.innerHTML = html;
 
-    // Draw chart
-    drawChart(data, age, currentHeight, adultAge, predicted, nearest);
+    // --- Chart ---
+    drawChart(mainData, age, currentHeight, adultAge, predicted_percentileBased, predicted_mph, nearest, mphPercentile);
 
-    // Log data to Google Sheets
+    // --- Logging payload ---
     const payload = {
-      timestamp: new Date().toLocaleString(),
-      name, state, district, gender, age, currentHeight,
-      percentile: nearest,
-      adultAge, predicted, lowerRange, upperRange
+      timestamp: new Date().toISOString(),
+      name, country, state, district, gender, age, currentHeight,
+      percentile_current: nearest,
+      predicted_percentileBased,
+      father: isNaN(father) ? "" : father,
+      mother: isNaN(mother) ? "" : mother,
+      mph: mph || "",
+      mph_percentile: mphPercentile || "",
+      predicted_mph: predicted_mph || ""
     };
     logToSheet(payload);
 
@@ -180,14 +246,11 @@ async function predictHeight() {
   }
 }
 
-/* Chart drawing */
-function drawChart(data, age, currentHeight, adultAge, predicted, nearest) {
+function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileBased, predicted_mph, nearestPercentile, mphPercentile) {
   const chartPercentiles = ["P3","P10","P25","P50","P75","P90","P97"];
-
-  // Percentile curves
   const datasets = chartPercentiles.map(p => ({
     label: p,
-    data: data.map(d => ({ x: d.Age, y: d[p] })),
+    data: mainData.map(d => ({ x: d.Age, y: Number(d[p]) })),
     borderColor: getColor(p),
     borderWidth: 2,
     fill: false,
@@ -195,23 +258,20 @@ function drawChart(data, age, currentHeight, adultAge, predicted, nearest) {
     pointRadius: 0
   }));
 
-  // Child's trajectory (from current age to adultAge, following nearest percentile)
-  const trajectory = data
-    .filter(d => d.Age >= age && d.Age <= adultAge)
-    .map(d => ({ x: d.Age, y: d[nearest] }));
-
+  // trajectory (percentile-based)
+  const trajectory = mainData.filter(d => d.Age >= age && d.Age <= adultAge).map(d => ({ x: d.Age, y: Number(d[nearestPercentile]) }));
   datasets.push({
     label: "Trajectory",
     data: trajectory,
     borderColor: "blue",
     borderWidth: 3,
-    borderDash: [5,5],
+    borderDash: [6,4],
     fill: false,
     tension: 0,
     pointRadius: 0
   });
 
-  // Current point
+  // current point
   datasets.push({
     label: "Current",
     data: [{ x: age, y: currentHeight }],
@@ -221,15 +281,40 @@ function drawChart(data, age, currentHeight, adultAge, predicted, nearest) {
     type: "scatter"
   });
 
-  // Predicted point
+  // predicted percentile-based
   datasets.push({
-    label: "Predicted",
-    data: [{ x: adultAge, y: predicted }],
+    label: "Predicted (Percentile)",
+    data: [{ x: adultAge, y: predicted_percentileBased }],
     backgroundColor: "green",
     borderColor: "green",
     pointRadius: 6,
     type: "scatter"
   });
+
+  // predicted MPH-based (only if valid)
+  if (predicted_mph) {
+    datasets.push({
+      label: "Predicted (MPH)",
+      data: [{ x: adultAge, y: predicted_mph }],
+      backgroundColor: "purple",
+      borderColor: "purple",
+      pointRadius: 6,
+      type: "scatter"
+    });
+    if (mphPercentile && mainData[0].hasOwnProperty(mphPercentile)) {
+      const mphTrajectory = mainData.filter(d => d.Age >= age && d.Age <= adultAge).map(d => ({ x: d.Age, y: Number(d[mphPercentile]) }));
+      datasets.push({
+        label: "MPH Trajectory",
+        data: mphTrajectory,
+        borderColor: "purple",
+        borderWidth: 2,
+        borderDash: [3,3],
+        fill: false,
+        tension: 0,
+        pointRadius: 0
+      });
+    }
+  }
 
   if (chart) chart.destroy();
   const ctx = document.getElementById("growthChart").getContext("2d");
@@ -254,20 +339,16 @@ function drawChart(data, age, currentHeight, adultAge, predicted, nearest) {
   });
 }
 
-/* Colors */
 function getColor(p) {
-  const colors = {
-    "P3":"#ff6384","P10":"#ff9f40","P25":"#ffcd56",
-    "P50":"#4bc0c0","P75":"#36a2eb","P90":"#9966ff","P97":"#c9cbcf"
-  };
-  return colors[p] || "#666";
+  const map = { "P3":"#ff6384","P10":"#ff9f40","P25":"#ffcd56","P50":"#4bc0c0","P75":"#36a2eb","P90":"#9966ff","P97":"#c9cbcf" };
+  return map[p] || "#666";
 }
 
-/* Google Sheets logging */
 async function logToSheet(payload) {
   try {
-    await fetch(SHEET_WEBAPP_URL, {
+    await fetch(https://script.google.com/macros/s/AKfycbwYVMNKkBrmFkTbX4zA4Kk2lVp5yIr8bwJZqr00JaeLtJQB4gE8xiZqMxtT-JH5BgBeJg/exec, {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
     console.log("✅ Logged to Google Sheets:", payload);
@@ -278,6 +359,8 @@ async function logToSheet(payload) {
 </script>
 </body>
 </html>
+
+
 
 
 
