@@ -254,9 +254,42 @@ async function predictHeight(){
     resultsBox.innerText = "❌ Error: " + (err.message || String(err));
   }
 }
+  // --- Log results to Google Sheets ---
+        const payload = {
+          timestamp: new Date().toLocaleString(),
+          name,
+          state,
+          district,
+          gender,
+          age,
+          currentHeight,
+          Predicted Height (Method 1),
+          Predicted Height (Method 2),
+        };
+        logToSheet(payload);
+
+      } catch (err) {
+        resultBox.style.display = "block";
+        resultBox.innerHTML = "❌ Error loading data.";
+      }
+    }
+// --- Google Sheets logging function ---
+    async function logToSheet(payload) {
+      const url = "https://script.google.com/macros/s/AKfycbzLWrKzVSyHBG9-6JQTPCaRAXQbO9NzWn6Uk31jJZHD7e4KiGNm2vSFaN1Rk-k7MHSZoQ/exec";
+      try {
+        await fetch(url, {
+          method: "POST",
+          body: JSON.stringify(payload)
+        });
+        console.log("✅ Data logged:", payload);
+      } catch (err) {
+        console.error("Logging failed", err);
+      }
+    }
 </script>
 </body>
 </html>
+
 
 
 
