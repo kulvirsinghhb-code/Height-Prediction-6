@@ -22,7 +22,6 @@
     .msg { margin-top:8px; font-weight:600; }
     .success { color:green; }
     .error { color:crimson; }
-    .actions { margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
   </style>
 </head>
 <body>
@@ -34,12 +33,10 @@
         <label for="name">Name</label>
         <input id="name" type="text" placeholder="Child's name (optional)">
       </div>
-
       <div class="col">
         <label for="state">State</label>
         <input id="state" type="text" placeholder="State">
       </div>
-
       <div class="col">
         <label for="district">District</label>
         <input id="district" type="text" placeholder="District">
@@ -54,12 +51,10 @@
           <option value="Female">Female</option>
         </select>
       </div>
-
       <div class="col">
         <label for="age">Current Age (years, decimals allowed)</label>
         <input id="age" type="number" step="0.01" min="0" max="20" placeholder="e.g. 7.5">
       </div>
-
       <div class="col">
         <label for="height">Current Height (cm)</label>
         <input id="height" type="number" step="0.1" min="0" placeholder="e.g. 125.4">
@@ -74,13 +69,11 @@
           <option value="20">20 years</option>
         </select>
       </div>
-
       <div class="col">
         <label>&nbsp;</label>
         <div class="controls">
           <button id="predictBtn" onclick="predictHeight()">Predict</button>
-          <button id="printBtn" onclick="window.print()" class="secondary">🖨 Print</button>
-          <button id="exportBtn" onclick="exportLocalLog()" class="secondary">⬇ Export logs (local)</button>
+          <button onclick="window.print()" class="secondary">🖨 Print</button>
         </div>
       </div>
     </div>
@@ -89,37 +82,23 @@
     <div id="logMsg" class="msg" style="display:none;"></div>
 
     <canvas id="growthChart" width="880" height="420"></canvas>
-    <div class="small">Tip: Chart is interactive — hover points to see exact values.</div>
+    <div class="small">Hover over lines to see percentile values. Red = current, Green = predicted, Blue = trajectory.</div>
   </div>
 
 <script>
-/* -------------------------
-  Config: Google Apps Script URL
-   (already provided by you)
----------------------------*/
 const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz73tJdxWhXBMxIjsWcN6WNWLnFkK8OPYpjNIrb0oV5JNj4efTyfDRuh4LMWv7A1BtwaQ/exec";
-
-/* local storage key for cached logs */
-const LOCAL_LOG_KEY = "height_predictor_local_logs_v1";
-
-/* global chart instance */
 let chart = null;
 
-/* helper: load JSON file (Male.json or Female.json) */
+/* Load dataset */
 async function loadJsonFile(gender) {
   const filename = gender === "Male" ? "Male.json" : "Female.json";
-  const res = await fetch(filename, {cache: "no-store"});
+  const res = await fetch(filename, { cache: "no-store" });
   if (!res.ok) throw new Error("Could not load " + filename);
   return res.json();
 }
 
-/* main prediction function */
+/* Main prediction */
 async function predictHeight() {
-  // UI disables
-  const predictBtn = document.getElementById("predictBtn");
-  predictBtn.disabled = true;
-  document.getElementById("logMsg").style.display = "none";
-
   const name = document.getElementById("name").value.trim();
   const state = document.getElementById("state").value.trim();
   const district = document.getElementById("district").value.trim();
@@ -129,300 +108,178 @@ async function predictHeight() {
   const adultAge = parseInt(document.getElementById("adultAge").value, 10);
   const resultBox = document.getElementById("results");
 
-  // validation
-  if (isNaN(age) || isNaN(currentHeight) || age < 0) {
-    predictBtn.disabled = false;
+  if (isNaN(age) || isNaN(currentHeight)) {
     resultBox.style.display = "block";
     resultBox.innerText = "❌ Please enter a valid age and height.";
     return;
   }
 
   try {
-    // load json dataset
     const json = await loadJsonFile(gender);
     const data = json.data;
 
-    // clamp age within dataset range
-    const minAge = data[0].Age;
-    const maxAge = data[data.length - 1].Age;
-    const clampedAge = Math.max(minAge, Math.min(maxAge, age));
-
-    // find lower and upper rows for interpolation
+    // Find lower and upper rows for interpolation
     let lower = data[0];
-    for (let i=0;i<data.length;i++){
-      if (data[i].Age <= clampedAge) lower = data[i];
-      else break;
+    for (let i=0; i<data.length; i++) {
+      if (data[i].Age <= age) lower = data[i]; else break;
     }
-    let upper = data.find(item => item.Age >= clampedAge) || data[data.length-1];
+    let upper = data.find(item => item.Age >= age) || data[data.length-1];
+    const factor = (age - lower.Age) / ((upper.Age - lower.Age) || 1);
 
-    // if clampedAge exactly matches upper or lower, factor becomes 0
-    const denom = (upper.Age - lower.Age) || 1;
-    const factor = (clampedAge - lower.Age) / denom;
-
-    // interpolate each percentile between lower and upper
-    const percentileKeys = Object.keys(lower).filter(k => k !== "Age");
+    // Interpolated percentiles
+    const percentiles = Object.keys(lower).filter(k => k !== "Age");
     const interpolated = {};
-    percentileKeys.forEach(k => {
-      const lv = Number(lower[k]);
-      const uv = Number(upper[k]);
-      interpolated[k] = lv + factor * (uv - lv);
+    percentiles.forEach(p => {
+      interpolated[p] = lower[p] + factor * (upper[p] - lower[p]);
     });
 
-    // find nearest percentile
-    let nearest = percentileKeys[0];
+    // Find nearest percentile
+    let nearest = percentiles[0];
     let minDiff = Math.abs(interpolated[nearest] - currentHeight);
-    percentileKeys.forEach(k => {
-      const diff = Math.abs(interpolated[k] - currentHeight);
-      if (diff < minDiff) { minDiff = diff; nearest = k; }
+    percentiles.forEach(p => {
+      const diff = Math.abs(interpolated[p] - currentHeight);
+      if (diff < minDiff) { minDiff = diff; nearest = p; }
     });
 
-    // project to chosen adultAge: find row that matches adultAge in dataset (or nearest)
+    // Project to adult age
     const adultRow = data.find(r => r.Age === adultAge) || data[data.length-1];
-    const predicted = Number(adultRow[nearest]);
+    const predicted = adultRow[nearest];
     const sd = predicted * 0.045;
-    const lowerRange = Number(predicted - sd).toFixed(2);
-    const upperRange = Number(predicted + sd).toFixed(2);
+    const lowerRange = (predicted - sd).toFixed(2);
+    const upperRange = (predicted + sd).toFixed(2);
 
-    // show results
+    // Show results
     resultBox.style.display = "block";
-    resultBox.innerHTML = 
-      `👤 Name: ${name || "-"}\n` +
-      `🌍 Location: ${state || "-"}${state && district ? ", " : ""}${district || ""}\n` +
-      `✅ Gender: ${gender}\n` +
-      `✅ Current Age: ${age} years\n` +
-      `✅ Current Height: ${currentHeight} cm\n` +
-      `📊 Nearest Percentile: ${nearest}\n\n` +
-      `🔮 Predicted Height at age ${adultAge} (following ${nearest}): ${predicted} cm\n` +
-      `Range (±4.5%): ${lowerRange} – ${upperRange} cm\n`;
+    resultBox.innerHTML = `
+      👤 Name: <b>${name||"-"}</b><br>
+      🌍 Location: <b>${state||"-"}, ${district||"-"}</b><br>
+      ✅ Gender: <b>${gender}</b><br>
+      ✅ Current Age: <b>${age} years</b><br>
+      ✅ Current Height: <b>${currentHeight} cm</b><br>
+      📊 Nearest Percentile: <b>${nearest}</b><br><br>
+      🔮 Predicted Adult Height at <b>${adultAge}</b> (following ${nearest}): 
+      <b>${predicted} cm</b><br>
+      Range (±4.5%): <b>${lowerRange} – ${upperRange} cm</b>
+    `;
 
-    // prepare chart data and draw
-    drawChart(data, percentileKeys, age, currentHeight, adultAge, predicted);
+    // Draw chart
+    drawChart(data, age, currentHeight, adultAge, predicted, nearest);
 
-    // prepare payload with timestamp
+    // Log data to Google Sheets
     const payload = {
-      timestamp: (new Date()).toISOString(),
-      name: name || "",
-      state: state || "",
-      district: district || "",
-      gender,
-      age,
-      currentHeight,
+      timestamp: new Date().toLocaleString(),
+      name, state, district, gender, age, currentHeight,
       percentile: nearest,
-      adultAge,
-      predicted,
-      lowerRange,
-      upperRange
+      adultAge, predicted, lowerRange, upperRange
     };
-
-    // save to local storage (always)
-    saveLocalLog(payload);
-
-    // send to Google Sheet (async) and show success/failure
-    try {
-      const logResult = await logToSheet(payload);
-      showLogMessage("📤 Data saved to Google Sheets ✅", true);
-      console.log("Google Sheets logged:", logResult);
-    } catch (err) {
-      showLogMessage("⚠️ Logging to Google Sheets failed. Saved locally instead.", false);
-      console.error("Logging failed:", err);
-    }
+    logToSheet(payload);
 
   } catch (err) {
-    console.error(err);
     resultBox.style.display = "block";
-    resultBox.innerText = "❌ Error: " + (err.message || "Failed to calculate");
-  } finally {
-    predictBtn.disabled = false;
+    resultBox.innerText = "❌ Error: " + err.message;
   }
 }
 
-/* draw chart with percentile curves and points */
-function drawChart(data, percentileKeys, age, currentHeight, adultAge, predicted) {
-  // convert curves to (x,y) points
-  const curveDatasets = percentileKeys.filter(k => ["P3","P10","P25","P50","P75","P90","P97"].includes(k)).map(k => {
-    return {
-      label: k,
-      data: data.map(d => ({ x: d.Age, y: Number(d[k]) })),
-      borderColor: getColor(k),
-      borderWidth: 2,
-      fill: false,
-      tension: 0.3,
-      pointRadius: 0
-    };
+/* Chart drawing */
+function drawChart(data, age, currentHeight, adultAge, predicted, nearest) {
+  const chartPercentiles = ["P3","P10","P25","P50","P75","P90","P97"];
+
+  // Percentile curves
+  const datasets = chartPercentiles.map(p => ({
+    label: p,
+    data: data.map(d => ({ x: d.Age, y: d[p] })),
+    borderColor: getColor(p),
+    borderWidth: 2,
+    fill: false,
+    tension: 0.3,
+    pointRadius: 0
+  }));
+
+  // Child's trajectory (from current age to adultAge, following nearest percentile)
+  const trajectory = data
+    .filter(d => d.Age >= age && d.Age <= adultAge)
+    .map(d => ({ x: d.Age, y: d[nearest] }));
+
+  datasets.push({
+    label: "Trajectory",
+    data: trajectory,
+    borderColor: "blue",
+    borderWidth: 3,
+    borderDash: [5,5],
+    fill: false,
+    tension: 0,
+    pointRadius: 0
   });
 
-  // child's current point (at exact decimal age)
-  const currentPointDS = {
+  // Current point
+  datasets.push({
     label: "Current",
     data: [{ x: age, y: currentHeight }],
     backgroundColor: "red",
     borderColor: "red",
     pointRadius: 6,
-    showLine: false,
-    type: 'scatter'
-  };
+    type: "scatter"
+  });
 
-  // predicted adult point
-  const predictedPointDS = {
-    label: "Predicted (adult)",
+  // Predicted point
+  datasets.push({
+    label: "Predicted",
     data: [{ x: adultAge, y: predicted }],
     backgroundColor: "green",
     borderColor: "green",
     pointRadius: 6,
-    showLine: false,
-    type: 'scatter'
-  };
+    type: "scatter"
+  });
 
-  const datasets = [...curveDatasets, currentPointDS, predictedPointDS];
-
-  // destroy existing chart if present
   if (chart) chart.destroy();
-
   const ctx = document.getElementById("growthChart").getContext("2d");
-
   chart = new Chart(ctx, {
-    type: 'line',
+    type: "line",
     data: { datasets },
     options: {
-      maintainAspectRatio: false,
       responsive: true,
       plugins: {
-        legend: { position: 'bottom' },
+        legend: { position: "bottom" },
         tooltip: {
-          mode: 'nearest',
-          intersect: true,
           callbacks: {
-            label: function(context) {
-              const ds = context.dataset;
-              const x = context.parsed.x;
-              const y = context.parsed.y;
-              if (ds.label === 'Current') return `Current: age ${x}, ${y} cm`;
-              if (ds.label === 'Predicted (adult)') return `Predicted: age ${x}, ${y} cm`;
-              return `${ds.label}: ${y} cm (age ${x})`;
-            }
+            label: c => `${c.dataset.label}: ${c.parsed.y} cm at age ${c.parsed.x}`
           }
         }
       },
       scales: {
-        x: {
-          type: 'linear',
-          position: 'bottom',
-          title: { display: true, text: 'Age (years)' },
-          min: data[0].Age,
-          max: data[data.length-1].Age
-        },
-        y: {
-          title: { display: true, text: 'Height (cm)' }
-        }
+        x: { type: "linear", title: { display: true, text: "Age (years)" } },
+        y: { title: { display: true, text: "Height (cm)" } }
       }
     }
   });
 }
 
-/* color map */
-function getColor(k) {
-  const map = {
-    "P3": "rgba(255,99,132,1)",
-    "P10": "rgba(255,159,64,1)",
-    "P25": "rgba(255,205,86,1)",
-    "P50": "rgba(75,192,192,1)",
-    "P75": "rgba(54,162,235,1)",
-    "P90": "rgba(153,102,255,1)",
-    "P97": "rgba(201,203,207,1)"
+/* Colors */
+function getColor(p) {
+  const colors = {
+    "P3":"#ff6384","P10":"#ff9f40","P25":"#ffcd56",
+    "P50":"#4bc0c0","P75":"#36a2eb","P90":"#9966ff","P97":"#c9cbcf"
   };
-  return map[k] || "#666";
+  return colors[p] || "#666";
 }
 
-/* --- Local storage helpers --- */
-function getLocalLogs() {
-  try {
-    const raw = localStorage.getItem(LOCAL_LOG_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch (e) {
-    return [];
-  }
-}
-function saveLocalLog(record) {
-  const logs = getLocalLogs();
-  logs.push(record);
-  // keep last 1000 records only
-  if (logs.length > 1000) logs.splice(0, logs.length - 1000);
-  localStorage.setItem(LOCAL_LOG_KEY, JSON.stringify(logs));
-}
-
-/* export local logs as CSV */
-function exportLocalLog() {
-  const logs = getLocalLogs();
-  if (!logs.length) {
-    alert("No local logs to export.");
-    return;
-  }
-  const headers = Object.keys(logs[0]);
-  const csvRows = [];
-  csvRows.push(headers.join(","));
-  logs.forEach(r => {
-    csvRows.push(headers.map(h => {
-      const v = r[h];
-      if (v === null || v === undefined) return "";
-      // escape quotes
-      return `"${String(v).replace(/"/g, '""')}"`;
-    }).join(","));
-  });
-  const csv = csvRows.join("\n");
-  const blob = new Blob([csv], { type: 'text/csv' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `height_predictor_logs_${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.csv`;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
-}
-
-/* --- Google Sheets logging function ---
-   Posts JSON payload to your Apps Script Web App.
-   It returns a resolved Promise when response.ok.
-*/
+/* Google Sheets logging */
 async function logToSheet(payload) {
-  const res = await fetch(SHEET_WEBAPP_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
-  if (!res.ok) {
-    const text = await res.text().catch(()=>null);
-    throw new Error("Sheet logging failed: " + (text || res.status));
-  }
-  // return text if needed
-  return res.text().catch(()=>"ok");
-}
-
-/* small UI helper to show log message */
-function showLogMessage(msg, success=true) {
-  const el = document.getElementById("logMsg");
-  el.style.display = "block";
-  el.innerText = msg;
-  el.className = success ? "msg success" : "msg error";
-  // hide after 6 seconds
-  setTimeout(()=>{ el.style.display = "none"; }, 6000);
-}
-
-/* init: draw empty chart skeleton */
-window.addEventListener("load", async ()=> {
-  // draw empty skeleton with Male by default
   try {
-    const json = await loadJsonFile("Male");
-    const data = json.data;
-    const percentileKeys = Object.keys(data[0]).filter(k => k !== "Age");
-    drawChart(data, percentileKeys, 0, 0, 18, 0);
+    await fetch(SHEET_WEBAPP_URL, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    });
+    console.log("✅ Logged to Google Sheets:", payload);
   } catch (e) {
-    console.warn("Could not draw initial chart:", e);
+    console.error("⚠️ Failed to log:", e);
   }
-});
+}
 </script>
 </body>
 </html>
+
+
 
 
 
