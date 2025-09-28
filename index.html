@@ -1,35 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Height Prediction Calculator (Minimal)</title>
+  <title>Height Prediction Calculator</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:#f4f8fc; margin:28px}
-    .wrap{max-width:900px;margin:0 auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
-    h1{margin:0 0 12px;font-size:20px;text-align:center}
+    body { font-family: Arial, sans-serif; margin: 30px; background: #f4f8fc; }
+    .container { max-width:900px; margin:auto; background:#fff; padding:20px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.06) }
+    h1 { text-align:center; margin-bottom:8px }
     label{display:block;margin-top:10px;font-weight:600}
-    input,select,button{width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid #d0d0d0}
-    .inline{display:flex;gap:8px}
-    .inline input{width:50%}
-    .result{margin-top:14px;padding:12px;background:#e8f4ff;border-radius:8px;white-space:pre-wrap}
+    input, select, button { width:100%; padding:8px; margin-top:6px; border-radius:8px; border:1px solid #ccc }
+    .small{width:48%;display:inline-block}
+    .result{margin-top:18px;padding:12px;background:#e8f4ff;border-left:5px solid #0078D7;white-space:pre-wrap}
     canvas{margin-top:18px;max-width:100%}
-    button{background:#0078d7;color:#fff;border:0}
-    button:active{transform:translateY(1px)}
+    button{background:#0078D7;color:#fff;border:0;cursor:pointer}
+    button:hover{background:#005a9e}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Height Prediction Calculator (Minimal)</h1>
+  <div class="container">
+    <h1>Height Prediction Calculator</h1>
 
-    <label>Method</label>
-    <div class="inline">
-      <label style="font-weight:400"><input type="radio" name="method" value="1" checked> Method 1 (child only)</label>
-      <label style="font-weight:400"><input type="radio" name="method" value="2"> Method 2 (child + parents)</label>
-    </div>
+    <label><input type="radio" name="method" value="1" checked> Method 1 — child only</label>
+    <label><input type="radio" name="method" value="2"> Method 2 — child + parents</label>
 
     <label for="name">Name</label>
-    <input id="name" type="text" placeholder="Child's name">
+    <input id="name" type="text" placeholder="Child name">
+
+    <label for="state">State (optional)</label>
+    <input id="state" type="text" placeholder="State">
+
+    <label for="district">District (optional)</label>
+    <input id="district" type="text" placeholder="District">
 
     <label for="gender">Gender</label>
     <select id="gender"><option>Male</option><option>Female</option></select>
@@ -37,154 +39,132 @@
     <label for="age">Age (years, decimals allowed)</label>
     <input id="age" type="number" step="0.1" placeholder="e.g. 7.5">
 
-    <label for="height">Current height (cm)</label>
+    <label for="height">Current Height (cm)</label>
     <input id="height" type="number" step="0.1" placeholder="e.g. 125.4">
 
     <div id="parents" style="display:none">
-      <label for="mother">Mother's height (cm)</label>
+      <label for="mother">Mother's Height (cm)</label>
       <input id="mother" type="number" step="0.1" placeholder="e.g. 160">
 
-      <label for="father">Father's height (cm)</label>
+      <label for="father">Father's Height (cm)</label>
       <input id="father" type="number" step="0.1" placeholder="e.g. 172">
     </div>
 
-    <button id="btnPredict">Predict</button>
-
-    <div id="out" class="result" style="display:none"></div>
-    <canvas id="chart" height="220"></canvas>
+    <button id="predictBtn">Predict</button>
+    <div id="results" class="result" style="display:none"></div>
+    <canvas id="growthChart"></canvas>
   </div>
 
 <script>
-/* Minimal utility helpers */
+/* Minimal helpers */
 const toNum = v => { const n = Number(v); return Number.isFinite(n) ? n : NaN; };
 const rr = n => (Math.round(n*100)/100).toFixed(2);
+let chart = null;
 
-/* Show/hide parent inputs when method changes */
 document.querySelectorAll('input[name="method"]').forEach(r=>{
   r.addEventListener('change', ()=> {
     document.getElementById('parents').style.display = (document.querySelector('input[name="method"]:checked').value === "2") ? 'block' : 'none';
-    document.getElementById('out').style.display = 'none';
+    document.getElementById('results').style.display = 'none';
   });
 });
 
-/* Chart.js instance */
-let chart = null;
+function colorFor(pk){
+  return {"P3":"rgba(255,99,132,1)","P10":"rgba(255,159,64,1)","P25":"rgba(255,205,86,1)","P50":"rgba(75,192,192,1)","P75":"rgba(54,162,235,1)","P90":"rgba(153,102,255,1)","P97":"rgba(201,203,207,1)"}[pk] || 'black';
+}
 
-/* Colors for percentile lines */
-const colorFor = pk => ({
-  P3: 'rgba(255,99,132,1)',
-  P10: 'rgba(255,159,64,1)',
-  P25: 'rgba(255,205,86,1)',
-  P50: 'rgba(75,192,192,1)',
-  P75: 'rgba(54,162,235,1)',
-  P90: 'rgba(153,102,255,1)',
-  P97: 'rgba(201,203,207,1)'
-})[pk] || 'black';
-
-/* Main prediction */
-document.getElementById('btnPredict').addEventListener('click', async function(){
+document.getElementById('predictBtn').addEventListener('click', async function(){
   const method = document.querySelector('input[name="method"]:checked').value;
   const name = document.getElementById('name').value.trim();
+  const state = document.getElementById('state').value.trim();
+  const district = document.getElementById('district').value.trim();
   const gender = document.getElementById('gender').value;
   const age = toNum(document.getElementById('age').value);
   const height = toNum(document.getElementById('height').value);
-
-  const out = document.getElementById('out');
+  const out = document.getElementById('results');
   out.style.display = 'none';
 
   if (!name || Number.isNaN(age) || Number.isNaN(height)) {
     out.style.display = 'block';
-    out.textContent = '❌ Please fill Name, Age and Height correctly.';
+    out.textContent = '❌ Fill Name, Age and Height correctly.';
     return;
   }
 
-  // Load growth file
+  // load growth JSON (Male.json / Female.json)
   const growthFile = (gender === 'Male') ? 'Male.json' : 'Female.json';
-  let growthRes = await fetch(growthFile);
-  if (!growthRes.ok) { out.style.display='block'; out.textContent='❌ Growth JSON not found.'; return; }
-  const growthJson = await growthRes.json();
+  const resp = await fetch(growthFile);
+  if (!resp.ok) { out.style.display='block'; out.textContent='❌ Growth file missing.'; return; }
+  const growthJson = await resp.json();
   const growthData = Array.isArray(growthJson) ? growthJson : (growthJson.data || growthJson);
 
-  // percentile keys (P3,P10,...)
   const ps = Object.keys(growthData[0]).filter(k=>/^P\d+/.test(k));
-
-  // sort rows by Age
   const rows = growthData.slice().sort((a,b)=>toNum(a.Age)-toNum(b.Age));
 
-  // find lower/upper for interpolation
+  // interpolation for current age
   let lower = rows[0], upper = rows[rows.length-1];
   for (let r of rows) {
     if (toNum(r.Age) <= age) lower = r;
     if (toNum(r.Age) >= age) { upper = r; break; }
   }
-  const denom = (toNum(upper.Age)-toNum(lower.Age)) || 1;
+  const denom = (toNum(upper.Age) - toNum(lower.Age)) || 1;
   const factor = (age - toNum(lower.Age)) / denom;
 
-  // interpolate percentile heights at current age
   const interp = {};
-  ps.forEach(pk => {
-    interp[pk] = toNum(lower[pk]) + factor*(toNum(upper[pk]) - toNum(lower[pk]));
-  });
+  ps.forEach(pk => interp[pk] = toNum(lower[pk]) + factor * (toNum(upper[pk]) - toNum(lower[pk])));
 
-  // find nearest percentile for current height
-  let nearest = ps[0];
-  let bestDiff = Math.abs(interp[nearest] - height);
+  // nearest percentile to child's current height
+  let nearest = ps[0], bestDiff = Math.abs(interp[nearest] - height);
   ps.forEach(pk => {
     const d = Math.abs(interp[pk] - height);
     if (d < bestDiff) { bestDiff = d; nearest = pk; }
   });
 
-  // adult (age 18) row
   const adultRow = rows.find(r => Math.round(toNum(r.Age)) === 18) || rows[rows.length-1];
   const predicted1 = toNum(adultRow[nearest]);
   const sd1 = predicted1 * 0.0175;
   const range1 = `${rr(predicted1 - sd1)} – ${rr(predicted1 + sd1)}`;
 
-  // prepare output and plot points
-  let text = `Name: ${name}\nGender: ${gender}\nAge: ${age} years\nCurrent height: ${height} cm\nNearest percentile: ${nearest}\n\nPredicted (Method 1): ${rr(predicted1)} cm\nRange (±1.75%): ${range1}`;
-
   let predicted2 = null;
+  let avgPred = null;
+  let text = `Name: ${name}\nGender: ${gender}\nAge: ${age}\nHeight: ${height} cm\nNearest percentile: ${nearest}\n\nPredicted (Method 1): ${rr(predicted1)} cm\nRange (±1.75%): ${range1}`;
+
   if (method === "2") {
     const mom = toNum(document.getElementById('mother').value);
     const dad = toNum(document.getElementById('father').value);
     if (Number.isNaN(mom) || Number.isNaN(dad)) {
-      out.style.display='block'; out.textContent='❌ Please provide both parents heights for Method 2.';
-      return;
+      out.style.display='block'; out.textContent='❌ Provide both parents heights for Method 2.'; return;
     }
 
-    // load mph file
+    // load mph JSON
     const mphFile = (gender === 'Male') ? 'male_mph.json' : 'female_mph.json';
-    let mphRes = await fetch(mphFile);
-    if (!mphRes.ok) { out.style.display='block'; out.textContent='❌ MPH JSON not found.'; return; }
-    const mphData = await mphRes.json();
-    const mphRows = Array.isArray(mphData) ? mphData : (mphData.data || mphData);
+    const mphResp = await fetch(mphFile);
+    if (!mphResp.ok) { out.style.display='block'; out.textContent='❌ MPH file missing.'; return; }
+    const mphJson = await mphResp.json();
+    const mphData = Array.isArray(mphJson) ? mphJson : (mphJson.data || mphJson);
 
-    const midParent = Math.round((mom + dad)/2);
-    // try to find nearest midparent value - guess the key name for midparent
-    const sample = mphRows[0];
-    const midKey = Object.keys(sample).find(k => /mid/i.test(k)) || Object.keys(sample)[0];
-    const pctKey = Object.keys(sample).find(k => /percentile/i.test(k)) || Object.keys(sample).find(k => /^\d+(\.\d+)?$/.test(String(sample[k]))) || null;
+    const midParent = Math.round((mom + dad) / 2);
+    const sample = mphData[0];
+    const midKey = Object.keys(sample).find(k=>/mid/i.test(k)) || Object.keys(sample)[0];
+    const pctKey = Object.keys(sample).find(k=>/percentile/i.test(k)) || Object.keys(sample).find(k=>/^\d+(\.\d+)?$/.test(String(sample[k]))) || null;
 
-    let nearestRow = mphRows.reduce((best, cur) => Math.abs(toNum(cur[midKey]) - midParent) < Math.abs(toNum(best[midKey]) - midParent) ? cur : best, mphRows[0]);
-
+    let nearestRow = mphData.reduce((best, cur) => Math.abs(toNum(cur[midKey]) - midParent) < Math.abs(toNum(best[midKey]) - midParent) ? cur : best, mphData[0]);
     const numericPercent = pctKey ? toNum(nearestRow[pctKey]) : NaN;
-    // map numeric percentile to nearest label (P3,P10,...)
-    const percentLabels = [{k:"P3",v:3},{k:"P10",v:10},{k:"P25",v:25},{k:"P50",v:50},{k:"P75",v:75},{k:"P90",v:90},{k:"P97",v:97}];
+
+    // map numeric percentile to label
+    const labels = [{k:"P3",v:3},{k:"P10",v:10},{k:"P25",v:25},{k:"P50",v:50},{k:"P75",v:75},{k:"P90",v:90},{k:"P97",v:97}];
     let mapped = "P50";
     if (!Number.isNaN(numericPercent)) {
-      let best = percentLabels[0];
-      for (const p of percentLabels) if (Math.abs(p.v - numericPercent) < Math.abs(best.v - numericPercent)) best = p;
+      let best = labels[0];
+      for (const p of labels) if (Math.abs(p.v - numericPercent) < Math.abs(best.v - numericPercent)) best = p;
       mapped = best.k;
     }
 
     predicted2 = toNum(adultRow[mapped]) || toNum(adultRow['P50']);
-    const avg = (predicted1 + predicted2)/2;
-    const sdAvg = avg * 0.0175;
-    text += `\n\nPredicted (Method 2 - parents): ${rr(predicted2)} cm\nFinal average: ${rr(avg)} cm\nRange (avg ±1.75%): ${rr(avg - sdAvg)} – ${rr(avg + sdAvg)}`;
+    avgPred = (predicted1 + predicted2) / 2;
+    const sdAvg = avgPred * 0.0175;
+    text += `\n\nPredicted (Method 2 - parents): ${rr(predicted2)} cm\nFinal average: ${rr(avgPred)} cm\nRange (avg ±1.75%): ${rr(avgPred - sdAvg)} – ${rr(avgPred + sdAvg)}`;
   }
 
-  // Show result
-  out.style.display='block';
+  out.style.display = 'block';
   out.textContent = text;
 
   // Build chart datasets
@@ -193,61 +173,59 @@ document.getElementById('btnPredict').addEventListener('click', async function()
     label: pk,
     data: rows.map(r => toNum(r[pk])),
     borderColor: colorFor(pk),
-    backgroundColor: colorFor(pk),
     fill: false,
     tension: 0.2,
     pointRadius: 0
   }));
 
-  // add current point
+  // current point
   datasets.push({
     label: 'Current',
     data: rows.map(r => (Math.abs(toNum(r.Age) - age) < 0.0001 ? height : null)),
-    borderColor: 'red',
-    backgroundColor: 'red',
-    pointRadius: 8,
-    showLine: false
+    borderColor: 'red', backgroundColor: 'red', pointRadius: 8, showLine:false
   });
 
-  // add predicted adult point(s)
+  // predicted points
   datasets.push({
     label: 'Predicted M1',
     data: rows.map(r => (Math.round(toNum(r.Age)) === 18 ? predicted1 : null)),
-    borderColor: 'green',
-    backgroundColor: 'green',
-    pointRadius: 8,
-    showLine: false
+    borderColor: 'green', backgroundColor: 'green', pointRadius: 8, showLine:false
   });
 
   if (predicted2 !== null) {
     datasets.push({
       label: 'Predicted M2',
       data: rows.map(r => (Math.round(toNum(r.Age)) === 18 ? predicted2 : null)),
-      borderColor: 'blue',
-      backgroundColor: 'blue',
-      pointRadius: 8,
-      showLine: false
+      borderColor: 'blue', backgroundColor: 'blue', pointRadius: 8, showLine:false
     });
   }
 
-  // draw chart
   if (chart) chart.destroy();
-  const ctx = document.getElementById('chart').getContext('2d');
+  const ctx = document.getElementById('growthChart').getContext('2d');
   chart = new Chart(ctx, {
     type: 'line',
     data: { labels: ages, datasets },
     options: {
       responsive: true,
       plugins: { legend: { position: 'bottom' } },
-      scales: {
-        x: { title: { display: true, text: 'Age (years)' } },
-        y: { title: { display: true, text: 'Height (cm)' } }
-      }
+      scales: { x: { title: { display:true, text:'Age (years)' } }, y: { title: { display:true, text:'Height (cm)' } } }
     }
   });
 
-}); // end predict
+  // Log to sheet via Vercel proxy (non-blocking)
+  const payload = {
+    name, state, district, gender, age, currentHeight: height,
+    motherHeight: (method === "2") ? document.getElementById('mother').value : "",
+    fatherHeight: (method === "2") ? document.getElementById('father').value : "",
+    predicted1, predicted2, avgPredicted: avgPred
+  };
+  // call proxy (no need to await)
+  try { fetch('/api/proxy', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) }); }
+  catch(e){ console.warn('Logging failed', e); }
 
+}); // end predict
 </script>
 </body>
 </html>
+
+
