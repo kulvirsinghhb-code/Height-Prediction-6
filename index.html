@@ -8,7 +8,7 @@
     body { font-family: Arial, sans-serif; margin: 24px; background: #f4f8fc; }
     .container { max-width: 960px; margin: auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
     h1 { text-align: center; color: #222; margin-bottom: 16px; }
-    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
     .col { flex: 1 1 220px; min-width: 180px; }
     label { display:block; font-weight:600; margin-top:8px; }
     input, select, button { width:100%; padding:8px 10px; margin-top:6px; border-radius:8px; border:1px solid #ccc; box-sizing:border-box; }
@@ -27,8 +27,19 @@
   <div class="container">
     <h1>Height Prediction Calculator</h1>
 
-    <!-- Name -->
+    <!-- Prediction Mode (moved to start) -->
     <div class="row">
+      <div class="col">
+        <label for="mode">Prediction Mode</label>
+        <select id="mode" aria-label="Prediction mode">
+          <option value="child">Child only (Percentile-based)</option>
+          <option value="child_parents">Child + Parents (Percentile + MPH)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Name -->
+    <div class="row" style="margin-top:6px;">
       <div class="col">
         <label for="name">Name</label>
         <input id="name" type="text" placeholder="Child's name (optional)">
@@ -70,19 +81,8 @@
       </div>
     </div>
 
-    <!-- Mode toggle -->
-    <div class="row">
-      <div class="col">
-        <label>Prediction Mode</label>
-        <select id="mode" onchange="toggleParents()">
-          <option value="child">Child only (Percentile-based)</option>
-          <option value="child_parents">Child + Parents (Percentile + MPH)</option>
-        </select>
-      </div>
-    </div>
-
     <!-- Parents Heights (hidden by default) -->
-    <div class="row" id="parentsSection" style="display:none;">
+    <div class="row" id="parentsSection" style="display:none; margin-top:8px;">
       <div class="col">
         <label for="father">Father's Height (cm)</label>
         <input id="father" type="number" step="0.1" min="0" placeholder="e.g. 172.0">
@@ -91,11 +91,7 @@
         <label for="mother">Mother's Height (cm)</label>
         <input id="mother" type="number" step="0.1" min="0" placeholder="e.g. 160.0">
       </div>
-    </div>
-
-    <!-- Adult age -->
-    <div class="row">
-      <div class="col">
+      <div class="col" style="align-self:end;">
         <label for="adultAge">Project adult height to age</label>
         <select id="adultAge">
           <option value="18">18 years</option>
@@ -108,8 +104,8 @@
     <div class="row">
       <div class="col">
         <div class="controls">
-          <button id="predictBtn" onclick="predictHeight()">Predict</button>
-          <button onclick="window.print()" class="secondary">🖨 Print</button>
+          <button id="predictBtn">Predict</button>
+          <button id="printBtn" class="secondary">🖨 Print</button>
         </div>
       </div>
     </div>
@@ -124,28 +120,73 @@
   </div>
 
 <script>
-const SHEET_WEBAPP_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL";
+/* ------------------
+  Configuration
+  Replace SHEET_WEBAPP_URL if needed (I used the one you shared earlier if you want).
+---------------------*/
+const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz73tJdxWhXBMxIjsWcN6WNWLnFkK8OPYpjNIrb0oV5JNj4efTyfDRuh4LMWv7A1BtwaQ/exec";
+
+/* DOM refs */
+const modeEl = document.getElementById("mode");
+const parentsSection = document.getElementById("parentsSection");
+const predictBtn = document.getElementById("predictBtn");
+const printBtn = document.getElementById("printBtn");
+const resultsEl = document.getElementById("results");
+const logMsgEl = document.getElementById("logMsg");
 let chart = null;
 
+/* Init: wire events and set initial parents visibility */
+document.addEventListener("DOMContentLoaded", () => {
+  // set toggle when mode changes
+  modeEl.addEventListener("change", toggleParents);
+  // set predict button handler
+  predictBtn.addEventListener("click", onPredictClicked);
+  printBtn.addEventListener("click", () => window.print());
+  // initial toggle based on default value
+  toggleParents();
+
+  // try to draw skeleton chart
+  initSkeletonChart();
+});
+
+/* Toggle parents inputs visibility based on mode */
 function toggleParents() {
-  const mode = document.getElementById("mode").value;
-  const parentsSection = document.getElementById("parentsSection");
+  const mode = modeEl.value;
   if (mode === "child_parents") {
     parentsSection.style.display = "flex";
   } else {
     parentsSection.style.display = "none";
+    // clear parents' inputs
     document.getElementById("father").value = "";
     document.getElementById("mother").value = "";
   }
 }
 
+/* Utility: fetch JSON file (Male.json / Female.json / male_mph.json etc.) */
 async function loadJsonFile(filename) {
   const res = await fetch(filename, { cache: "no-store" });
   if (!res.ok) throw new Error("Could not load " + filename);
   return res.json();
 }
 
+/* Called when user clicks predict */
+async function onPredictClicked() {
+  predictBtn.disabled = true;
+  logMsgEl.style.display = "none";
+  try {
+    await predictHeight();
+  } catch (err) {
+    resultsEl.style.display = "block";
+    resultsEl.innerText = "❌ Error: " + (err.message || err);
+  } finally {
+    predictBtn.disabled = false;
+  }
+}
+
+/* Main prediction logic */
 async function predictHeight() {
+  // read inputs
+  const mode = document.getElementById("mode").value;
   const name = document.getElementById("name").value.trim();
   const country = document.getElementById("country").value.trim();
   const state = document.getElementById("state").value.trim();
@@ -156,96 +197,131 @@ async function predictHeight() {
   const father = parseFloat(document.getElementById("father").value);
   const mother = parseFloat(document.getElementById("mother").value);
   const adultAge = parseInt(document.getElementById("adultAge").value, 10);
-  const mode = document.getElementById("mode").value;
-  const resultBox = document.getElementById("results");
 
+  // validation
   if (isNaN(age) || isNaN(currentHeight)) {
-    resultBox.style.display = "block";
-    resultBox.innerText = "❌ Please enter valid age and current height.";
+    resultsEl.style.display = "block";
+    resultsEl.innerText = "❌ Please enter valid age and current height.";
     return;
   }
 
-  try {
-    const mainFile = gender === "Male" ? "Male.json" : "Female.json";
-    const mainJson = await loadJsonFile(mainFile);
-    const mainData = mainJson.data;
+  // load main growth data
+  const mainFile = gender === "Male" ? "Male.json" : "Female.json";
+  const mainJson = await loadJsonFile(mainFile);
+  const mainData = mainJson.data;
 
-    // --- Percentile-based prediction ---
-    let lower = mainData[0];
-    for (let i=0;i<mainData.length;i++){
-      if (mainData[i].Age <= age) lower = mainData[i]; else break;
+  // find lower & upper rows for interpolation based on age
+  let lower = mainData[0];
+  for (let i = 0; i < mainData.length; i++) {
+    if (mainData[i].Age <= age) lower = mainData[i]; else break;
+  }
+  const upper = mainData.find(item => item.Age >= age) || mainData[mainData.length - 1];
+  const denom = (upper.Age - lower.Age) || 1;
+  const factor = (age - lower.Age) / denom;
+
+  // build interpolated percentiles at current age
+  const percentileKeys = Object.keys(lower).filter(k => k !== "Age");
+  const interpolated = {};
+  percentileKeys.forEach(k => {
+    interpolated[k] = Number(lower[k]) + factor * (Number(upper[k]) - Number(lower[k]));
+  });
+
+  // find nearest percentile for current height
+  let nearest = percentileKeys[0];
+  let minDiff = Math.abs(interpolated[nearest] - currentHeight);
+  percentileKeys.forEach(k => {
+    const diff = Math.abs(interpolated[k] - currentHeight);
+    if (diff < minDiff) { minDiff = diff; nearest = k; }
+  });
+
+  // predicted adult height using percentile method
+  const adultRow = mainData.find(r => r.Age === adultAge) || mainData[mainData.length - 1];
+  const predicted_percentileBased = Number(adultRow[nearest]);
+
+  // MPH method only if mode requires and both parents provided
+  let mph = null, mphPercentile = null, predicted_mph = null;
+  if (mode === "child_parents" && !isNaN(father) && !isNaN(mother)) {
+    // compute MPH as simple average
+    mph = (father + mother) / 2;
+
+    // load mph dataset (supports either .data array or object)
+    const mphFile = gender === "Male" ? "male_mph.json" : "female_mph.json";
+    const mphJson = await loadJsonFile(mphFile);
+
+    // normalize mphData array
+    let mphData = [];
+    if (Array.isArray(mphJson.data) && mphJson.data.length) mphData = mphJson.data;
+    else if (Array.isArray(mphJson)) mphData = mphJson;
+    else if (typeof mphJson === "object" && Object.keys(mphJson).length) {
+      // maybe it's an object with many rows not inside data - handle as single-row fallback
+      mphData = mphJson.data ? mphJson.data : [mphJson];
     }
-    let upper = mainData.find(item => item.Age >= age) || mainData[mainData.length-1];
-    const factor = (age - lower.Age) / ((upper.Age - lower.Age) || 1);
-    const percentileKeys = Object.keys(lower).filter(k => k !== "Age");
-    const interpolated = {};
-    percentileKeys.forEach(k => {
-      interpolated[k] = Number(lower[k]) + factor * (Number(upper[k]) - Number(lower[k]));
-    });
-    let nearest = percentileKeys[0];
-    let minDiff = Math.abs(interpolated[nearest] - currentHeight);
-    percentileKeys.forEach(k => {
-      const diff = Math.abs(interpolated[k] - currentHeight);
-      if (diff < minDiff) { minDiff = diff; nearest = k; }
-    });
-    const adultRow = mainData.find(r => r.Age === adultAge) || mainData[mainData.length-1];
-    const predicted_percentileBased = Number(adultRow[nearest]);
 
-    // --- MPH-based prediction (if mode=child_parents) ---
-    let predicted_mph = null, mphPercentile = null, mph = null;
-    if (mode === "child_parents" && !isNaN(father) && !isNaN(mother)) {
-      mph = (father + mother) / 2;
-      const mphFile = gender === "Male" ? "male_mph.json" : "female_mph.json";
-      const mphJson = await loadJsonFile(mphFile);
-      const mphData = mphJson.data;
-      let closestRow = mphData[0];
-      let minDiff = Math.abs(mphData[0].Midparental_m - mph);
-      mphData.forEach(row => {
-        const diff = Math.abs(row.Midparental_m - mph);
-        if (diff < minDiff) { minDiff = diff; closestRow = row; }
-      });
-      mphPercentile = closestRow.Percentile;
-      if (adultRow[mphPercentile]) {
+    if (mphData.length) {
+      // find closest Midparental_m value
+      let closest = mphData[0];
+      let mdiff = Math.abs(Number(mphData[0].Midparental_m) - mph);
+      for (let i=0;i<mphData.length;i++){
+        const row = mphData[i];
+        const diff = Math.abs(Number(row.Midparental_m) - mph);
+        if (diff < mdiff) { mdiff = diff; closest = row; }
+      }
+      // Percentile field name in mph file is "Percentile"
+      mphPercentile = closest.Percentile;
+      // use same percentile to lookup predicted adult height from main dataset
+      if (adultRow[mphPercentile] !== undefined) {
         predicted_mph = Number(adultRow[mphPercentile]);
       }
     }
+  }
 
-    // --- Display ---
-    let html = "";
-    html += `✅ Gender: <b>${gender}</b>\n`;
-    html += `✅ Age: <b>${age} years</b>\n`;
-    html += `🌍 Country: <b>${country||"-"}</b>\n`;
-    html += `🏞️ State: <b>${state||"-"}</b>, District: <b>${district||"-"}</b>\n\n`;
-    html += `📊 Predicted Adult Height (Percentile-based): <b>${predicted_percentileBased} cm</b>\n`;
-    if (predicted_mph) {
-      html += `📊 Predicted Adult Height (MPH-based): <b>${predicted_mph} cm</b>\n`;
-    }
-    resultBox.style.display = "block";
-    resultBox.innerHTML = html;
+  // --- Results display (simplified as requested) ---
+  let html = "";
+  html += `✅ Gender: <b>${gender}</b>\n`;
+  html += `✅ Age: <b>${age} years</b>\n`;
+  html += `🌍 Country: <b>${country || "-"}</b>\n`;
+  html += `🏞️ State: <b>${state || "-"}</b>, District: <b>${district || "-"}</b>\n\n`;
+  html += `📊 Predicted Adult Height (Percentile-based): <b>${predicted_percentileBased} cm</b>\n`;
+  if (predicted_mph !== null) {
+    html += `📊 Predicted Adult Height (MPH-based): <b>${predicted_mph} cm</b>\n`;
+  }
+  resultsEl.style.display = "block";
+  resultsEl.innerHTML = html;
 
-    // --- Chart ---
-    drawChart(mainData, age, currentHeight, adultAge, predicted_percentileBased, predicted_mph, nearest, mphPercentile);
+  // --- Chart ---
+  drawChart(mainData, age, currentHeight, adultAge, predicted_percentileBased, predicted_mph, nearest, mphPercentile);
 
-    // --- Logging payload ---
-    const payload = {
-      timestamp: new Date().toISOString(),
-      name, country, state, district, gender, age, currentHeight,
-      percentile_current: nearest,
-      predicted_percentileBased,
-      father: isNaN(father) ? "" : father,
-      mother: isNaN(mother) ? "" : mother,
-      mph: mph || "",
-      mph_percentile: mphPercentile || "",
-      predicted_mph: predicted_mph || ""
-    };
-    logToSheet(payload);
+  // --- Logging payload (no upper/lower) ---
+  const payload = {
+    timestamp: new Date().toISOString(),
+    name: name || "",
+    country: country || "",
+    state: state || "",
+    district: district || "",
+    gender,
+    age,
+    currentHeight,
+    percentile_current: nearest,
+    predicted_percentileBased,
+    father: !isNaN(father) ? father : "",
+    mother: !isNaN(mother) ? mother : "",
+    mph: mph !== null ? Number(mph.toFixed(2)) : "",
+    mph_percentile: mphPercentile || "",
+    predicted_mph: predicted_mph !== null ? predicted_mph : ""
+  };
 
+  // send to Google Sheets and show confirmation
+  try {
+    await logToSheet(payload);
+    showLogMessage("📤 Data saved to Google Sheets ✅", true);
   } catch (err) {
-    resultBox.style.display = "block";
-    resultBox.innerText = "❌ Error: " + err.message;
+    console.error("Logging failed:", err);
+    showLogMessage("⚠️ Logging to Google Sheets failed (saved locally).", false);
+    // optional: also save locally (not implemented here), you can add local storage if you want
   }
 }
 
+/* draw the chart */
 function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileBased, predicted_mph, nearestPercentile, mphPercentile) {
   const chartPercentiles = ["P3","P10","P25","P50","P75","P90","P97"];
   const datasets = chartPercentiles.map(p => ({
@@ -258,7 +334,7 @@ function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileB
     pointRadius: 0
   }));
 
-  // trajectory (percentile-based)
+  // percentile-based trajectory (from current age to adultAge)
   const trajectory = mainData.filter(d => d.Age >= age && d.Age <= adultAge).map(d => ({ x: d.Age, y: Number(d[nearestPercentile]) }));
   datasets.push({
     label: "Trajectory",
@@ -281,7 +357,7 @@ function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileB
     type: "scatter"
   });
 
-  // predicted percentile-based
+  // predicted percentile-based (green)
   datasets.push({
     label: "Predicted (Percentile)",
     data: [{ x: adultAge, y: predicted_percentileBased }],
@@ -291,8 +367,8 @@ function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileB
     type: "scatter"
   });
 
-  // predicted MPH-based (only if valid)
-  if (predicted_mph) {
+  // predicted MPH-based (purple) + optional MPH trajectory only if mph exists
+  if (predicted_mph !== null && predicted_mph !== undefined && predicted_mph !== "") {
     datasets.push({
       label: "Predicted (MPH)",
       data: [{ x: adultAge, y: predicted_mph }],
@@ -301,6 +377,7 @@ function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileB
       pointRadius: 6,
       type: "scatter"
     });
+
     if (mphPercentile && mainData[0].hasOwnProperty(mphPercentile)) {
       const mphTrajectory = mainData.filter(d => d.Age >= age && d.Age <= adultAge).map(d => ({ x: d.Age, y: Number(d[mphPercentile]) }));
       datasets.push({
@@ -339,38 +416,47 @@ function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileB
   });
 }
 
+/* color helper */
 function getColor(p) {
   const map = { "P3":"#ff6384","P10":"#ff9f40","P25":"#ffcd56","P50":"#4bc0c0","P75":"#36a2eb","P90":"#9966ff","P97":"#c9cbcf" };
   return map[p] || "#666";
 }
 
+/* send payload to Google Apps Script and return when done */
 async function logToSheet(payload) {
+  const res = await fetch(https://script.google.com/macros/s/AKfycbzOGqTLTZNpCmStuqPh1v70pV0t5-6_aNFAYXK8921kvud5VMZAmkZvUSrzud8pot-rhQ/exec, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  if (!res.ok) {
+    const txt = await res.text().catch(()=>res.statusText);
+    throw new Error("Sheet logging failed: " + txt);
+  }
+  return res.text().catch(()=>"ok");
+}
+
+/* show log message in UI */
+function showLogMessage(msg, ok=true) {
+  logMsgEl.style.display = "block";
+  logMsgEl.innerText = msg;
+  logMsgEl.className = ok ? "msg success" : "msg error";
+  setTimeout(()=> { logMsgEl.style.display = "none"; }, 6000);
+}
+
+/* try to draw a skeleton chart on load (optional) */
+async function initSkeletonChart() {
   try {
-    await fetch(https://script.google.com/macros/s/AKfycbwYVMNKkBrmFkTbX4zA4Kk2lVp5yIr8bwJZqr00JaeLtJQB4gE8xiZqMxtT-JH5BgBeJg/exec, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-    console.log("✅ Logged to Google Sheets:", payload);
+    const json = await loadJsonFile("Male.json");
+    drawChart(json.data, 0, 0, 18, 0, null, "P50", null);
   } catch (e) {
-    console.error("⚠️ Failed to log:", e);
+    // ignore
+    console.warn("Could not draw skeleton chart:", e);
   }
 }
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
