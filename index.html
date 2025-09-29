@@ -27,11 +27,11 @@
   <div class="container">
     <h1>Height Prediction Calculator</h1>
 
-    <!-- Prediction Mode (moved to start) -->
+    <!-- Prediction Mode (at the top) -->
     <div class="row">
       <div class="col">
         <label for="mode">Prediction Mode</label>
-        <!-- explicit onchange attribute added to guarantee immediate toggle -->
+        <!-- inline onchange kept for robustness, toggleParents is attached to window below -->
         <select id="mode" aria-label="Prediction mode" onchange="toggleParents()">
           <option value="child">Child only (Percentile-based)</option>
           <option value="child_parents">Child + Parents (Percentile + MPH)</option>
@@ -122,7 +122,7 @@
 
 <script>
 /* ------------------
-  Configuration — put your Apps Script URL here
+  Configuration — set your Apps Script URL here
 ---------------------*/
 const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz73tJdxWhXBMxIjsWcN6WNWLnFkK8OPYpjNIrb0oV5JNj4efTyfDRuh4LMWv7A1BtwaQ/exec";
 
@@ -135,31 +135,34 @@ const resultsEl = document.getElementById("results");
 const logMsgEl = document.getElementById("logMsg");
 let chart = null;
 
-/* wire up events (also keep onchange on select for robustness) */
-document.addEventListener("DOMContentLoaded", () => {
-  predictBtn.addEventListener("click", onPredictClicked);
-  printBtn.addEventListener("click", () => window.print());
-  // ensure parents section initial state matches selected mode
-  toggleParents();
-});
-
-/* Toggle parents inputs visibility based on mode */
-function toggleParents() {
+/* Make toggleParents global so inline onchange works */
+window.toggleParents = function() {
   const mode = modeEl.value;
   if (mode === "child_parents") {
-    // use flex so the child .col elements align
     parentsSection.style.display = "flex";
   } else {
     parentsSection.style.display = "none";
     document.getElementById("father").value = "";
     document.getElementById("mother").value = "";
   }
-}
+};
 
-/* Utility: fetch JSON file (Male.json / Female.json / male_mph.json etc.) */
+/* wire up events after DOM ready */
+document.addEventListener("DOMContentLoaded", () => {
+  // add listener too (redundant with inline onchange but robust)
+  modeEl.addEventListener("change", window.toggleParents);
+  predictBtn.addEventListener("click", onPredictClicked);
+  printBtn.addEventListener("click", () => window.print());
+  // initialize parents visibility
+  window.toggleParents();
+  // draw skeleton chart
+  initSkeletonChart();
+});
+
+/* Utility: fetch JSON file */
 async function loadJsonFile(filename) {
   const res = await fetch(filename, { cache: "no-store" });
-  if (!res.ok) throw new Error("Could not load " + filename);
+  if (!res.ok) throw new Error("Could not load " + filename + " (status " + res.status + ")");
   return res.json();
 }
 
@@ -172,6 +175,7 @@ async function onPredictClicked() {
   } catch (err) {
     resultsEl.style.display = "block";
     resultsEl.innerText = "❌ Error: " + (err.message || err);
+    console.error(err);
   } finally {
     predictBtn.disabled = false;
   }
@@ -179,7 +183,7 @@ async function onPredictClicked() {
 
 /* Main prediction */
 async function predictHeight() {
-  const mode = modeEl.value;
+  const mode = document.getElementById("mode").value;
   const name = document.getElementById("name").value.trim();
   const country = document.getElementById("country").value.trim();
   const state = document.getElementById("state").value.trim();
@@ -228,7 +232,7 @@ async function predictHeight() {
   const adultRow = mainData.find(r => r.Age === adultAge) || mainData[mainData.length - 1];
   const predicted_percentileBased = Number(adultRow[nearest]);
 
-  // MPH method
+  // MPH method (only if mode child_parents and both parents provided)
   let mph = null, mphPercentile = null, predicted_mph = null;
   if (mode === "child_parents" && !isNaN(father) && !isNaN(mother)) {
     mph = (father + mother) / 2;
@@ -255,7 +259,7 @@ async function predictHeight() {
     }
   }
 
-  // Display simplified results
+  // Display simplified results (no ± ranges)
   let html = "";
   html += `✅ Gender: <b>${gender}</b>\n`;
   html += `✅ Age: <b>${age} years</b>\n`;
@@ -271,7 +275,7 @@ async function predictHeight() {
   // Chart
   drawChart(mainData, age, currentHeight, adultAge, predicted_percentileBased, predicted_mph, nearest, mphPercentile);
 
-  // Logging payload
+  // Logging payload (no lower/upper)
   const payload = {
     timestamp: new Date().toISOString(),
     name: name || "",
@@ -299,7 +303,7 @@ async function predictHeight() {
   }
 }
 
-/* Chart function (unchanged) */
+/* Chart drawing */
 function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileBased, predicted_mph, nearestPercentile, mphPercentile) {
   const chartPercentiles = ["P3","P10","P25","P50","P75","P90","P97"];
   const datasets = chartPercentiles.map(p => ({
@@ -395,7 +399,7 @@ function getColor(p) {
   return map[p] || "#666";
 }
 
-/* Logging helper */
+/* Logging to Google Sheets Apps Script */
 async function logToSheet(payload) {
   const res = await fetch(https://script.google.com/macros/s/AKfycby580FEKf-7IwiaM24MiNjN0GHdgn0U4i4btJ65efLO3jZ6wyv6bpuroJvz1MR1umWUYw/exec, {
     method: "POST",
@@ -409,7 +413,7 @@ async function logToSheet(payload) {
   return res.text().catch(()=>"ok");
 }
 
-/* UI log message */
+/* show result of logging */
 function showLogMessage(msg, ok=true) {
   logMsgEl.style.display = "block";
   logMsgEl.innerText = msg;
@@ -417,17 +421,18 @@ function showLogMessage(msg, ok=true) {
   setTimeout(()=> { logMsgEl.style.display = "none"; }, 6000);
 }
 
-/* draw skeleton chart initially */
+/* draw skeleton chart */
 async function initSkeletonChart() {
   try {
     const json = await loadJsonFile("Male.json");
     drawChart(json.data, 0, 0, 18, 0, null, "P50", null);
   } catch (e) { /* ignore */ }
 }
-initSkeletonChart();
 </script>
 </body>
 </html>
+
+
 
 
 
