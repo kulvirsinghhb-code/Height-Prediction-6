@@ -25,6 +25,7 @@
 
   <!-- toggleParents early so inline onchange won't fail -->
   <script>
+    // Define globally so inline onchange finds it early
     window.toggleParents = function() {
       try {
         var modeEl = document.getElementById("mode");
@@ -135,105 +136,78 @@
   </div>
 
 <script>
-/* ------------------
-  Configuration — set your Apps Script URL here
----------------------*/
+/* Configuration: set your Apps Script URL here (or empty to skip) */
 const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz73tJdxWhXBMxIjsWcN6WNWLnFkK8OPYpjNIrb0oV5JNj4efTyfDRuh4LMWv7A1BtwaQ/exec";
 
 /* DOM refs */
 const modeEl = document.getElementById("mode");
-const parentsSection = document.getElementById("parentsSection");
 const predictBtn = document.getElementById("predictBtn");
 const printBtn = document.getElementById("printBtn");
 const resultsEl = document.getElementById("results");
 const logMsgEl = document.getElementById("logMsg");
 let chart = null;
 
-/* wire up events after DOM ready */
+/* Events */
 document.addEventListener("DOMContentLoaded", () => {
-  modeEl.addEventListener("change", toggleParents);
-  predictBtn.addEventListener("click", onPredictClicked);
-  printBtn.addEventListener("click", () => window.print());
+  if (modeEl) modeEl.addEventListener("change", toggleParents);
+  if (predictBtn) predictBtn.addEventListener("click", onPredictClicked);
+  if (printBtn) printBtn.addEventListener("click", () => window.print());
   toggleParents();
   initSkeletonChart();
 });
 
-/* Robust JSON loader:
-   - tries filename
-   - if fails, tries resolved absolute path relative to page
-   - logs attempted URLs to console
-   - provides embedded small MPH fallback for quick testing
-*/
+/* Robust JSON loader */
 async function loadJsonFile(filename) {
   const tryUrls = [];
-
-  // direct relative path (same dir)
   tryUrls.push(filename);
-  // try relative to current document path
-  try {
-    const base = location.href.substring(0, location.href.lastIndexOf('/') + 1);
-    tryUrls.push(base + filename);
-  } catch(e) { /* ignore */ }
-
-  // try origin + pathname dir
-  try {
-    const url = new URL(filename, location.href);
-    tryUrls.push(url.href);
-  } catch(e) {}
+  try { const base = location.href.substring(0, location.href.lastIndexOf('/') + 1); tryUrls.push(base + filename); } catch(e){}
+  try { const url = new URL(filename, location.href); tryUrls.push(url.href); } catch(e){}
 
   for (const u of tryUrls) {
     console.log("Attempting to fetch:", u);
     try {
       const res = await fetch(u, { cache: "no-store" });
-      if (!res.ok) {
-        console.warn("Fetch returned", res.status, "for", u);
-        continue;
-      }
-      const json = await res.json();
-      return json;
+      if (!res.ok) { console.warn("Fetch returned", res.status, "for", u); continue; }
+      return await res.json();
     } catch (err) {
       console.warn("Fetch error for", u, err);
       continue;
     }
   }
 
-  // Fallback: small embedded MPH datasets for quick testing (remove in production)
+  // Embedded fallback for MPH files (testing only)
   if (filename.toLowerCase().includes("female_mph")) {
-    console.warn("Using embedded fallback female_mph data (for testing only).");
-    return {
-      data: [
-        {"Mother_cm":140,"Father_cm":153,"Midparental_m":146.5,"Percentile":"P25"},
-        {"Mother_cm":150,"Father_cm":165,"Midparental_m":157.5,"Percentile":"P50"},
-        {"Mother_cm":155,"Father_cm":175,"Midparental_m":165,"Percentile":"P75"}
-      ]
-    };
+    console.warn("Using embedded fallback female_mph data (testing only).");
+    return { data: [
+      {"Mother_cm":140,"Father_cm":153,"Midparental_m":146.5,"Percentile":"P25"},
+      {"Mother_cm":150,"Father_cm":165,"Midparental_m":157.5,"Percentile":"P50"},
+      {"Mother_cm":155,"Father_cm":175,"Midparental_m":165,"Percentile":"P75"}
+    ]};
   }
   if (filename.toLowerCase().includes("male_mph")) {
-    console.warn("Using embedded fallback male_mph data (for testing only).");
-    return {
-      data: [
-        {"Mother_cm":150,"Father_cm":160,"Midparental_m":155,"Percentile":"P25"},
-        {"Mother_cm":160,"Father_cm":170,"Midparental_m":165,"Percentile":"P50"},
-        {"Mother_cm":165,"Father_cm":175,"Midparental_m":170,"Percentile":"P75"}
-      ]
-    };
+    console.warn("Using embedded fallback male_mph data (testing only).");
+    return { data: [
+      {"Mother_cm":150,"Father_cm":160,"Midparental_m":155,"Percentile":"P25"},
+      {"Mother_cm":160,"Father_cm":170,"Midparental_m":165,"Percentile":"P50"},
+      {"Mother_cm":165,"Father_cm":175,"Midparental_m":170,"Percentile":"P75"}
+    ]};
   }
 
-  throw new Error("Unable to load JSON file: " + filename + " (tried multiple paths). Check console for attempted URLs and confirm file presence.");
+  throw new Error("Unable to load JSON file: " + filename + ". Check file exists in same folder and server is running.");
 }
 
 /* Predict handler */
 async function onPredictClicked() {
-  predictBtn.disabled = true;
+  if (predictBtn) predictBtn.disabled = true;
   logMsgEl.style.display = "none";
   try {
     await predictHeight();
   } catch (err) {
     resultsEl.style.display = "block";
-    resultsEl.innerText = "❌ Error: " + (err.message || err);
+    resultsEl.innerText = "❌ Error: " + (err.message || String(err));
     console.error(err);
   } finally {
-    predictBtn.disabled = false;
+    if (predictBtn) predictBtn.disabled = false;
   }
 }
 
@@ -260,7 +234,6 @@ async function predictHeight() {
   const mainFile = gender === "Male" ? "Male.json" : "Female.json";
   const mainJson = await loadJsonFile(mainFile);
   const mainData = Array.isArray(mainJson.data) ? mainJson.data : mainJson;
-
   mainData.sort((a,b)=>Number(a.Age)-Number(b.Age));
 
   const minAge = Number(mainData[0].Age);
@@ -276,7 +249,6 @@ async function predictHeight() {
   const factor = (clampedAge - Number(lower.Age)) / denom;
 
   const percentileKeys = Object.keys(lower).filter(k => k !== "Age");
-
   const interpolated = {};
   percentileKeys.forEach(k => {
     const lowV = Number(lower[k]);
@@ -298,9 +270,9 @@ async function predictHeight() {
   const adultRow = mainData.find(r => Number(r.Age) === Number(adultAge)) || mainData[mainData.length - 1];
 
   let predicted_percentileBased = null;
-  if (nearest && adultRow && adultRow.hasOwnProperty(nearest)) {
+  if (nearest && adultRow && Object.prototype.hasOwnProperty.call(adultRow, nearest)) {
     predicted_percentileBased = Number(adultRow[nearest]);
-  } else if (adultRow && adultRow.hasOwnProperty('P50')) {
+  } else if (adultRow && Object.prototype.hasOwnProperty.call(adultRow,'P50')) {
     predicted_percentileBased = Number(adultRow['P50']);
   } else {
     predicted_percentileBased = NaN;
@@ -328,11 +300,11 @@ async function predictHeight() {
           if (diff < mdiff) { mdiff = diff; closest = row; }
         }
         mphPercentile = (closest.Percentile || closest.percentile || closest.p || closest.P) || null;
-        if (mphPercentile && !adultRow.hasOwnProperty(mphPercentile)) {
+        if (mphPercentile && !Object.prototype.hasOwnProperty.call(adultRow, mphPercentile)) {
           const asNum = Number(mphPercentile);
           if (Number.isFinite(asNum)) mphPercentile = 'P' + asNum;
         }
-        if (mphPercentile && adultRow && adultRow.hasOwnProperty(mphPercentile)) {
+        if (mphPercentile && adultRow && Object.prototype.hasOwnProperty.call(adultRow, mphPercentile)) {
           predicted_mph = Number(adultRow[mphPercentile]);
         }
       }
@@ -342,13 +314,13 @@ async function predictHeight() {
   }
 
   let html = "";
-  html += `✅ Gender: <b>${gender}</b>\n`;
-  html += `✅ Age: <b>${age} years</b>\n`;
-  html += `🌍 Country: <b>${country || "-"}</b>\n`;
-  html += `🏞️ State: <b>${state || "-"}</b>, District: <b>${district || "-"}</b>\n\n`;
-  html += `📊 Predicted Adult Height (Percentile-based): <b>${Number.isFinite(predicted_percentileBased)?predicted_percentileBased+' cm':'N/A'}</b>\n`;
+  html += "✅ Gender: <b>" + gender + "</b>\n";
+  html += "✅ Age: <b>" + age + " years</b>\n";
+  html += "🌍 Country: <b>" + (country || "-") + "</b>\n";
+  html += "🏞️ State: <b>" + (state || "-") + "</b>, District: <b>" + (district || "-") + "</b>\n\n";
+  html += "📊 Predicted Adult Height (Percentile-based): <b>" + (Number.isFinite(predicted_percentileBased) ? (predicted_percentileBased + " cm") : "N/A") + "</b>\n";
   if (predicted_mph !== null && Number.isFinite(predicted_mph)) {
-    html += `📊 Predicted Adult Height (MPH-based): <b>${predicted_mph} cm</b>\n`;
+    html += "📊 Predicted Adult Height (MPH-based): <b>" + predicted_mph + " cm</b>\n";
   }
   resultsEl.style.display = "block";
   resultsEl.innerHTML = html;
@@ -361,11 +333,11 @@ async function predictHeight() {
     country: country || "",
     state: state || "",
     district: district || "",
-    gender,
-    age,
-    currentHeight,
+    gender: gender,
+    age: age,
+    currentHeight: currentHeight,
     percentile_current: nearest || '',
-    predicted_percentileBased: Number.isFinite(predicted_percentileBased)?predicted_percentileBased:'',
+    predicted_percentileBased: Number.isFinite(predicted_percentileBased) ? predicted_percentileBased : '',
     father: !isNaN(father) ? father : "",
     mother: !isNaN(mother) ? mother : "",
     mph: mph !== null ? Number(mph.toFixed(2)) : "",
@@ -382,20 +354,24 @@ async function predictHeight() {
   }
 }
 
-/* Chart drawing (unchanged) */
+/* Chart drawing */
 function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileBased, predicted_mph, nearestPercentile, mphPercentile) {
   const chartPercentiles = ["P3","P10","P25","P50","P75","P90","P97"];
-  const datasets = chartPercentiles.map(p => ({
-    label: p,
-    data: mainData.map(d => ({ x: Number(d.Age), y: Number(d[p]) })),
-    borderColor: getColor(p),
-    borderWidth: 2,
-    fill: false,
-    tension: 0.3,
-    pointRadius: 0
-  }));
+  const datasets = chartPercentiles.map(function(p) {
+    return {
+      label: p,
+      data: mainData.map(function(d) { return { x: Number(d.Age), y: Number(d[p]) }; }),
+      borderColor: getColor(p),
+      borderWidth: 2,
+      fill: false,
+      tension: 0.3,
+      pointRadius: 0
+    };
+  });
 
-  const trajectory = mainData.filter(d => Number(d.Age) >= age && Number(d.Age) <= adultAge).map(d => ({ x: Number(d.Age), y: Number(d[nearestPercentile] || d['P50']) }));
+  const trajectory = mainData.filter(function(d){ return Number(d.Age) >= age && Number(d.Age) <= adultAge; })
+    .map(function(d){ return { x: Number(d.Age), y: Number(d[nearestPercentile] || d['P50']) }; });
+
   datasets.push({
     label: "Trajectory",
     data: trajectory,
@@ -435,8 +411,9 @@ function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileB
       type: "scatter"
     });
 
-    if (mphPercentile && mainData[0] && mainData[0].hasOwnProperty(mphPercentile)) {
-      const mphTrajectory = mainData.filter(d => Number(d.Age) >= age && Number(d.Age) <= adultAge).map(d => ({ x: Number(d.Age), y: Number(d[mphPercentile]) }));
+    if (mphPercentile && mainData[0] && Object.prototype.hasOwnProperty.call(mainData[0], mphPercentile)) {
+      const mphTrajectory = mainData.filter(function(d){ return Number(d.Age) >= age && Number(d.Age) <= adultAge; })
+        .map(function(d){ return { x: Number(d.Age), y: Number(d[mphPercentile]) }; });
       datasets.push({
         label: "MPH Trajectory",
         data: mphTrajectory,
@@ -454,14 +431,14 @@ function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileB
   const ctx = document.getElementById("growthChart").getContext("2d");
   chart = new Chart(ctx, {
     type: "line",
-    data: { datasets },
+    data: { datasets: datasets },
     options: {
       responsive: true,
       plugins: {
         legend: { position: "bottom" },
         tooltip: {
           callbacks: {
-            label: c => `${c.dataset.label}: ${c.parsed.y} cm at age ${c.parsed.x}`
+            label: function(c) { return c.dataset.label + ": " + c.parsed.y + " cm at age " + c.parsed.x; }
           }
         }
       },
@@ -479,22 +456,25 @@ function getColor(p) {
 }
 
 function getFirstFieldValue(obj, candidates) {
-  for (const k of candidates) {
-    if (obj && obj.hasOwnProperty(k)) {
-      const v = Number(obj[k]);
+  for (var i = 0; i < candidates.length; i++) {
+    var k = candidates[i];
+    if (obj && Object.prototype.hasOwnProperty.call(obj, k)) {
+      var v = Number(obj[k]);
       if (Number.isFinite(v)) return v;
     }
   }
-  for (const k of Object.keys(obj||{})) {
-    const v = Number(obj[k]);
-    if (Number.isFinite(v)) return v;
+  var keys = Object.keys(obj||{});
+  for (var j = 0; j < keys.length; j++) {
+    var kk = keys[j];
+    var vv = Number(obj[kk]);
+    if (Number.isFinite(vv)) return vv;
   }
   return NaN;
 }
 
 /* Logging to Google Sheets Apps Script */
 async function logToSheet(payload) {
-  if (!https://script.google.com/macros/s/AKfycbzA6TuYpP2IkBFpx6udY5mo1hgxIqK0T3f0FwtGaV5BStqkToffKKmgkbueT-l9_Jx5WQ/exec || https://script.google.com/macros/s/AKfycbzA6TuYpP2IkBFpx6udY5mo1hgxIqK0T3f0FwtGaV5BStqkToffKKmgkbueT-l9_Jx5WQ/exec.trim() === "") return Promise.resolve('skipped');
+  if (!SHEET_WEBAPP_URL || SHEET_WEBAPP_URL.trim() === "") return Promise.resolve('skipped');
   const res = await fetch(https://script.google.com/macros/s/AKfycbzA6TuYpP2IkBFpx6udY5mo1hgxIqK0T3f0FwtGaV5BStqkToffKKmgkbueT-l9_Jx5WQ/exec, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -507,11 +487,12 @@ async function logToSheet(payload) {
   return res.text().catch(()=>"ok");
 }
 
-function showLogMessage(msg, ok=true) {
+function showLogMessage(msg, ok) {
+  ok = (typeof ok === "undefined") ? true : ok;
   logMsgEl.style.display = "block";
   logMsgEl.innerText = msg;
   logMsgEl.className = ok ? "msg success" : "msg error";
-  setTimeout(()=> { logMsgEl.style.display = "none"; }, 6000);
+  setTimeout(function(){ logMsgEl.style.display = "none"; }, 6000);
 }
 
 async function initSkeletonChart() {
@@ -524,6 +505,8 @@ async function initSkeletonChart() {
 </script>
 </body>
 </html>
+
+
 
 
 
