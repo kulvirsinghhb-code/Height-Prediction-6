@@ -22,6 +22,31 @@
     .success { color:green; }
     .error { color:crimson; }
   </style>
+
+  <!-- Define toggleParents early so inline onchange won't fail -->
+  <script>
+    // global function referenced by inline onchange on the select
+    window.toggleParents = function() {
+      try {
+        var modeEl = document.getElementById("mode");
+        var parentsSection = document.getElementById("parentsSection");
+        if (!modeEl || !parentsSection) return;
+        var mode = modeEl.value;
+        if (mode === "child_parents") {
+          parentsSection.style.display = "flex";
+        } else {
+          parentsSection.style.display = "none";
+          var f = document.getElementById("father");
+          var m = document.getElementById("mother");
+          if (f) f.value = "";
+          if (m) m.value = "";
+        }
+      } catch (e) {
+        // fail silently but log for debug
+        console.warn("toggleParents error:", e);
+      }
+    };
+  </script>
 </head>
 <body>
   <div class="container">
@@ -31,7 +56,7 @@
     <div class="row">
       <div class="col">
         <label for="mode">Prediction Mode</label>
-        <!-- inline onchange kept for robustness, toggleParents is attached to window below -->
+        <!-- inline onchange kept for robustness -->
         <select id="mode" aria-label="Prediction mode" onchange="toggleParents()">
           <option value="child">Child only (Percentile-based)</option>
           <option value="child_parents">Child + Parents (Percentile + MPH)</option>
@@ -135,26 +160,14 @@ const resultsEl = document.getElementById("results");
 const logMsgEl = document.getElementById("logMsg");
 let chart = null;
 
-/* Make toggleParents global so inline onchange works */
-window.toggleParents = function() {
-  const mode = modeEl.value;
-  if (mode === "child_parents") {
-    parentsSection.style.display = "flex";
-  } else {
-    parentsSection.style.display = "none";
-    document.getElementById("father").value = "";
-    document.getElementById("mother").value = "";
-  }
-};
-
 /* wire up events after DOM ready */
 document.addEventListener("DOMContentLoaded", () => {
   // add listener too (redundant with inline onchange but robust)
-  modeEl.addEventListener("change", window.toggleParents);
+  modeEl.addEventListener("change", toggleParents);
   predictBtn.addEventListener("click", onPredictClicked);
   printBtn.addEventListener("click", () => window.print());
-  // initialize parents visibility
-  window.toggleParents();
+  // initialize parents visibility (call once)
+  toggleParents();
   // draw skeleton chart
   initSkeletonChart();
 });
@@ -303,20 +316,13 @@ async function predictHeight() {
 
   // Display simplified results (no ± ranges)
   let html = "";
-  html += `✅ Gender: <b>${gender}</b>
-`;
-  html += `✅ Age: <b>${age} years</b>
-`;
-  html += `🌍 Country: <b>${country || "-"}</b>
-`;
-  html += `🏞️ State: <b>${state || "-"}</b>, District: <b>${district || "-"}</b>
-
-`;
-  html += `📊 Predicted Adult Height (Percentile-based): <b>${Number.isFinite(predicted_percentileBased)?predicted_percentileBased+' cm':'N/A'}</b>
-`;
+  html += `✅ Gender: <b>${gender}</b>\n`;
+  html += `✅ Age: <b>${age} years</b>\n`;
+  html += `🌍 Country: <b>${country || "-"}</b>\n`;
+  html += `🏞️ State: <b>${state || "-"}</b>, District: <b>${district || "-"}</b>\n\n`;
+  html += `📊 Predicted Adult Height (Percentile-based): <b>${Number.isFinite(predicted_percentileBased)?predicted_percentileBased+' cm':'N/A'}</b>\n`;
   if (predicted_mph !== null && Number.isFinite(predicted_mph)) {
-    html += `📊 Predicted Adult Height (MPH-based): <b>${predicted_mph} cm</b>
-`;
+    html += `📊 Predicted Adult Height (MPH-based): <b>${predicted_mph} cm</b>\n`;
   }
   resultsEl.style.display = "block";
   resultsEl.innerHTML = html;
@@ -467,7 +473,7 @@ function getFirstFieldValue(obj, candidates) {
 /* Logging to Google Sheets Apps Script */
 async function logToSheet(payload) {
   // If no URL configured, skip silently
-  if (!SHEET_WEBAPP_URL || SHEET_WEBAPP_URL.trim() === "") return Promise.resolve('skipped');
+  if (!https://script.google.com/macros/s/AKfycbzA6TuYpP2IkBFpx6udY5mo1hgxIqK0T3f0FwtGaV5BStqkToffKKmgkbueT-l9_Jx5WQ/exec || https://script.google.com/macros/s/AKfycbzA6TuYpP2IkBFpx6udY5mo1hgxIqK0T3f0FwtGaV5BStqkToffKKmgkbueT-l9_Jx5WQ/exec.trim() === "") return Promise.resolve('skipped');
   const res = await fetch(https://script.google.com/macros/s/AKfycbzA6TuYpP2IkBFpx6udY5mo1hgxIqK0T3f0FwtGaV5BStqkToffKKmgkbueT-l9_Jx5WQ/exec, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -499,8 +505,5 @@ async function initSkeletonChart() {
 </script>
 </body>
 </html>
-
-
-
 
 
