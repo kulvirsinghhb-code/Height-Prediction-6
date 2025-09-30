@@ -23,9 +23,8 @@
     .error { color:crimson; }
   </style>
 
-  <!-- Define toggleParents early so inline onchange won't fail -->
+  <!-- toggleParents early so inline onchange won't fail -->
   <script>
-    // global function referenced by inline onchange on the select
     window.toggleParents = function() {
       try {
         var modeEl = document.getElementById("mode");
@@ -42,7 +41,6 @@
           if (m) m.value = "";
         }
       } catch (e) {
-        // fail silently but log for debug
         console.warn("toggleParents error:", e);
       }
     };
@@ -52,11 +50,9 @@
   <div class="container">
     <h1>Height Prediction Calculator</h1>
 
-    <!-- Prediction Mode (at the top) -->
     <div class="row">
       <div class="col">
         <label for="mode">Prediction Mode</label>
-        <!-- inline onchange kept for robustness -->
         <select id="mode" aria-label="Prediction mode" onchange="toggleParents()">
           <option value="child">Child only (Percentile-based)</option>
           <option value="child_parents">Child + Parents (Percentile + MPH)</option>
@@ -64,7 +60,6 @@
       </div>
     </div>
 
-    <!-- Name -->
     <div class="row" style="margin-top:6px;">
       <div class="col">
         <label for="name">Name</label>
@@ -72,7 +67,6 @@
       </div>
     </div>
 
-    <!-- Location -->
     <div class="row">
       <div class="col">
         <label for="country">Country</label>
@@ -88,7 +82,6 @@
       </div>
     </div>
 
-    <!-- Gender, Age, Height -->
     <div class="row">
       <div class="col">
         <label for="gender">Gender</label>
@@ -107,7 +100,6 @@
       </div>
     </div>
 
-    <!-- Parents Heights (hidden by default) -->
     <div class="row" id="parentsSection" style="display:none; margin-top:8px; align-items:flex-end;">
       <div class="col">
         <label for="father">Father's Height (cm)</label>
@@ -126,7 +118,6 @@
       </div>
     </div>
 
-    <!-- Buttons -->
     <div class="row">
       <div class="col">
         <div class="controls">
@@ -136,11 +127,9 @@
       </div>
     </div>
 
-    <!-- Results -->
     <div id="results" class="result" style="display:none;"></div>
     <div id="logMsg" class="msg" style="display:none;"></div>
 
-    <!-- Chart -->
     <canvas id="growthChart" width="920" height="420"></canvas>
     <div class="small">Red = current, Green = percentile-based predicted, Purple = MPH-based predicted (if parents provided), Blue dashed = trajectory.</div>
   </div>
@@ -162,24 +151,78 @@ let chart = null;
 
 /* wire up events after DOM ready */
 document.addEventListener("DOMContentLoaded", () => {
-  // add listener too (redundant with inline onchange but robust)
   modeEl.addEventListener("change", toggleParents);
   predictBtn.addEventListener("click", onPredictClicked);
   printBtn.addEventListener("click", () => window.print());
-  // initialize parents visibility (call once)
   toggleParents();
-  // draw skeleton chart
   initSkeletonChart();
 });
 
-/* Utility: fetch JSON file */
+/* Robust JSON loader:
+   - tries filename
+   - if fails, tries resolved absolute path relative to page
+   - logs attempted URLs to console
+   - provides embedded small MPH fallback for quick testing
+*/
 async function loadJsonFile(filename) {
-  const res = await fetch(filename, { cache: "no-store" });
-  if (!res.ok) throw new Error("Could not load " + filename + " (status " + res.status + ")");
-  return res.json();
+  const tryUrls = [];
+
+  // direct relative path (same dir)
+  tryUrls.push(filename);
+  // try relative to current document path
+  try {
+    const base = location.href.substring(0, location.href.lastIndexOf('/') + 1);
+    tryUrls.push(base + filename);
+  } catch(e) { /* ignore */ }
+
+  // try origin + pathname dir
+  try {
+    const url = new URL(filename, location.href);
+    tryUrls.push(url.href);
+  } catch(e) {}
+
+  for (const u of tryUrls) {
+    console.log("Attempting to fetch:", u);
+    try {
+      const res = await fetch(u, { cache: "no-store" });
+      if (!res.ok) {
+        console.warn("Fetch returned", res.status, "for", u);
+        continue;
+      }
+      const json = await res.json();
+      return json;
+    } catch (err) {
+      console.warn("Fetch error for", u, err);
+      continue;
+    }
+  }
+
+  // Fallback: small embedded MPH datasets for quick testing (remove in production)
+  if (filename.toLowerCase().includes("female_mph")) {
+    console.warn("Using embedded fallback female_mph data (for testing only).");
+    return {
+      data: [
+        {"Mother_cm":140,"Father_cm":153,"Midparental_m":146.5,"Percentile":"P25"},
+        {"Mother_cm":150,"Father_cm":165,"Midparental_m":157.5,"Percentile":"P50"},
+        {"Mother_cm":155,"Father_cm":175,"Midparental_m":165,"Percentile":"P75"}
+      ]
+    };
+  }
+  if (filename.toLowerCase().includes("male_mph")) {
+    console.warn("Using embedded fallback male_mph data (for testing only).");
+    return {
+      data: [
+        {"Mother_cm":150,"Father_cm":160,"Midparental_m":155,"Percentile":"P25"},
+        {"Mother_cm":160,"Father_cm":170,"Midparental_m":165,"Percentile":"P50"},
+        {"Mother_cm":165,"Father_cm":175,"Midparental_m":170,"Percentile":"P75"}
+      ]
+    };
+  }
+
+  throw new Error("Unable to load JSON file: " + filename + " (tried multiple paths). Check console for attempted URLs and confirm file presence.");
 }
 
-/* Predict button handler */
+/* Predict handler */
 async function onPredictClicked() {
   predictBtn.disabled = true;
   logMsgEl.style.display = "none";
@@ -214,33 +257,26 @@ async function predictHeight() {
     return;
   }
 
-  // load main growth dataset
   const mainFile = gender === "Male" ? "Male.json" : "Female.json";
   const mainJson = await loadJsonFile(mainFile);
-  const mainData = Array.isArray(mainJson.data) ? mainJson.data : mainJson; // support either format
+  const mainData = Array.isArray(mainJson.data) ? mainJson.data : mainJson;
 
-  // ensure mainData sorted by Age ascending
   mainData.sort((a,b)=>Number(a.Age)-Number(b.Age));
 
-  // clamp age to data range
   const minAge = Number(mainData[0].Age);
   const maxAge = Number(mainData[mainData.length-1].Age);
   const clampedAge = Math.max(minAge, Math.min(maxAge, age));
 
-  // find lower and upper rows for interpolation
   let lower = mainData[0];
   for (let i=0;i<mainData.length;i++){
     if (Number(mainData[i].Age) <= clampedAge) lower = mainData[i]; else break;
   }
   let upper = mainData.find(item => Number(item.Age) >= clampedAge) || mainData[mainData.length - 1];
-  // if both are same (at edges), interpolation factor = 0
   const denom = (Number(upper.Age) - Number(lower.Age)) || 1;
   const factor = (clampedAge - Number(lower.Age)) / denom;
 
-  // percentiles keys (exclude Age)
   const percentileKeys = Object.keys(lower).filter(k => k !== "Age");
 
-  // interpolate percentiles at current age
   const interpolated = {};
   percentileKeys.forEach(k => {
     const lowV = Number(lower[k]);
@@ -248,7 +284,6 @@ async function predictHeight() {
     interpolated[k] = Number.isFinite(lowV) && Number.isFinite(upV) ? (lowV + factor * (upV - lowV)) : NaN;
   });
 
-  // nearest percentile to current height
   let nearest = percentileKeys.length ? percentileKeys[0] : null;
   if (nearest) {
     let minDiff = Math.abs((interpolated[nearest]||0) - currentHeight);
@@ -260,10 +295,8 @@ async function predictHeight() {
     });
   }
 
-  // get adult row (exact adultAge or last available)
   const adultRow = mainData.find(r => Number(r.Age) === Number(adultAge)) || mainData[mainData.length - 1];
 
-  // predicted by percentile method (fallback to median if necessary)
   let predicted_percentileBased = null;
   if (nearest && adultRow && adultRow.hasOwnProperty(nearest)) {
     predicted_percentileBased = Number(adultRow[nearest]);
@@ -273,7 +306,6 @@ async function predictHeight() {
     predicted_percentileBased = NaN;
   }
 
-  // MPH method (only if mode child_parents and both parents provided)
   let mph = null, mphPercentile = null, predicted_mph = null;
   if (mode === "child_parents" && !isNaN(father) && !isNaN(mother)) {
     mph = (father + mother) / 2;
@@ -282,11 +314,9 @@ async function predictHeight() {
       const mphJson = await loadJsonFile(mphFile);
       let mphData = Array.isArray(mphJson.data) ? mphJson.data : (Array.isArray(mphJson) ? mphJson : (mphJson.data ? mphJson.data : []));
 
-      // try multiple possible field names for midparental value
       const mpFieldCandidates = ['Midparental_m','Midparental','midparental_m','midparental','midparental_cm','Midparental_cm'];
 
       if (mphData.length) {
-        // find the row with the closest midparental value
         let closest = mphData[0];
         let mpVal0 = getFirstFieldValue(mphData[0], mpFieldCandidates);
         let mdiff = Math.abs(mpVal0 - mph);
@@ -297,11 +327,8 @@ async function predictHeight() {
           const diff = Math.abs(mpVal - mph);
           if (diff < mdiff) { mdiff = diff; closest = row; }
         }
-        // try to read Percentile or percentile field
         mphPercentile = (closest.Percentile || closest.percentile || closest.p || closest.P) || null;
-        // ensure mphPercentile matches adultRow keys (like 'P50')
         if (mphPercentile && !adultRow.hasOwnProperty(mphPercentile)) {
-          // try to convert numeric percentile like 50 -> 'P50'
           const asNum = Number(mphPercentile);
           if (Number.isFinite(asNum)) mphPercentile = 'P' + asNum;
         }
@@ -314,7 +341,6 @@ async function predictHeight() {
     }
   }
 
-  // Display simplified results (no ± ranges)
   let html = "";
   html += `✅ Gender: <b>${gender}</b>\n`;
   html += `✅ Age: <b>${age} years</b>\n`;
@@ -327,10 +353,8 @@ async function predictHeight() {
   resultsEl.style.display = "block";
   resultsEl.innerHTML = html;
 
-  // Chart
   drawChart(mainData, age, currentHeight, adultAge, predicted_percentileBased, predicted_mph, nearest, mphPercentile);
 
-  // Logging payload (no lower/upper)
   const payload = {
     timestamp: new Date().toISOString(),
     name: name || "",
@@ -358,7 +382,7 @@ async function predictHeight() {
   }
 }
 
-/* Chart drawing */
+/* Chart drawing (unchanged) */
 function drawChart(mainData, age, currentHeight, adultAge, predicted_percentileBased, predicted_mph, nearestPercentile, mphPercentile) {
   const chartPercentiles = ["P3","P10","P25","P50","P75","P90","P97"];
   const datasets = chartPercentiles.map(p => ({
@@ -454,7 +478,6 @@ function getColor(p) {
   return map[p] || "#666";
 }
 
-/* utility: read first available numeric field from an object */
 function getFirstFieldValue(obj, candidates) {
   for (const k of candidates) {
     if (obj && obj.hasOwnProperty(k)) {
@@ -462,7 +485,6 @@ function getFirstFieldValue(obj, candidates) {
       if (Number.isFinite(v)) return v;
     }
   }
-  // try any numeric-like property
   for (const k of Object.keys(obj||{})) {
     const v = Number(obj[k]);
     if (Number.isFinite(v)) return v;
@@ -472,7 +494,6 @@ function getFirstFieldValue(obj, candidates) {
 
 /* Logging to Google Sheets Apps Script */
 async function logToSheet(payload) {
-  // If no URL configured, skip silently
   if (!https://script.google.com/macros/s/AKfycbzA6TuYpP2IkBFpx6udY5mo1hgxIqK0T3f0FwtGaV5BStqkToffKKmgkbueT-l9_Jx5WQ/exec || https://script.google.com/macros/s/AKfycbzA6TuYpP2IkBFpx6udY5mo1hgxIqK0T3f0FwtGaV5BStqkToffKKmgkbueT-l9_Jx5WQ/exec.trim() === "") return Promise.resolve('skipped');
   const res = await fetch(https://script.google.com/macros/s/AKfycbzA6TuYpP2IkBFpx6udY5mo1hgxIqK0T3f0FwtGaV5BStqkToffKKmgkbueT-l9_Jx5WQ/exec, {
     method: "POST",
@@ -486,7 +507,6 @@ async function logToSheet(payload) {
   return res.text().catch(()=>"ok");
 }
 
-/* show result of logging */
 function showLogMessage(msg, ok=true) {
   logMsgEl.style.display = "block";
   logMsgEl.innerText = msg;
@@ -494,7 +514,6 @@ function showLogMessage(msg, ok=true) {
   setTimeout(()=> { logMsgEl.style.display = "none"; }, 6000);
 }
 
-/* draw skeleton chart */
 async function initSkeletonChart() {
   try {
     const json = await loadJsonFile("Male.json");
@@ -505,5 +524,7 @@ async function initSkeletonChart() {
 </script>
 </body>
 </html>
+
+
 
 
